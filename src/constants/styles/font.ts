@@ -7,17 +7,17 @@ export const TEXT_STYLE_NAME = {
   caption: 'caption',
 } as const;
 
-export type TextStyleNameType =
+export type TextStyleName =
   (typeof TEXT_STYLE_NAME)[keyof typeof TEXT_STYLE_NAME];
 
-interface TextStyleType {
+interface TextStyle {
   fontSize: number;
   fontWeight: number;
   lineHeight: string;
   letterSpacing?: string;
 }
 
-export const TEXT_STYLES: Record<TextStyleNameType, TextStyleType> = {
+export const TEXT_STYLES: Record<TextStyleName, TextStyle> = {
   [TEXT_STYLE_NAME.title]: {
     fontSize: 36,
     fontWeight: 600,
