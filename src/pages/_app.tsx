@@ -8,12 +8,14 @@ import '@/assets/fonts/font.css';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = React.useState(() => new QueryClient());
-  <QueryClientProvider client={queryClient}>
-    <RecoilRoot>
-      <Global styles={GlobalStyles} />
-      <Component {...pageProps} />
-    </RecoilRoot>
-  </QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RecoilRoot>
+        <Global styles={GlobalStyles} />
+        <Component {...pageProps} />
+      </RecoilRoot>
+    </QueryClientProvider>
+  );
 };
 
 export default App;
