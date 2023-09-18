@@ -7,7 +7,7 @@ export const ModalBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(25, 25, 27, 0.7);
+  background-color: rgba(25, 25, 27, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +23,14 @@ export const ModalBox = styled.div`
   padding: 30px;
 `;
 
+export const TextBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  flex-direction: column;
+`;
 export const ModalText = styled.div`
   display: flex;
   justify-content: center;
