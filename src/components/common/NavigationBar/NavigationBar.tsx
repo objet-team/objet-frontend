@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { COLORS } from '@/constants/styles';
-import LogoIcon from '@/assets/icons/logo.svg';
+import LogoIcon from '@/assets/icons/logo/LogoIcon.svg';
 import Text from '@/components/common/Text';
 import * as styles from './NavigationBar.style';
 
