@@ -10,13 +10,15 @@ const LoginModal = () => (
       <styles.ClosedButton>
         <CloseButton />
       </styles.ClosedButton>
-      <styles.ModalText>
-        <Text color={COLORS.font.black100} textStyleName="subtitle">
-          간편하게 로그인하고 모브제의 다양한 서비스를 이용해보세요.
-        </Text>
-      </styles.ModalText>
+      <styles.TextBox>
+        <styles.ModalText>
+          <Text color={COLORS.font.black100} textStyleName="subtitle">
+            간편하게 로그인하고 모브제의 다양한 서비스를 이용해보세요.
+          </Text>
+        </styles.ModalText>
 
-      <KakaoLoginButton />
+        <KakaoLoginButton />
+      </styles.TextBox>
     </styles.ModalBox>
   </styles.ModalBackground>
 );
