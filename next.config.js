@@ -3,6 +3,9 @@
 const nextConfig = {
   reactStrictMode: true,
   stories: ['../**/*.stories.mdx', '../**/*.stories.@(js|jsx|ts|tsx)'],
+  images: {
+    domains: ['images.unsplash.com'],
+  },
 
   webpack(config) {
     config.module.rules.push({
