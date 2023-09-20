@@ -1,0 +1,71 @@
+import Image from 'next/image';
+import CareerIcon from '@/assets/icons/exhibition/Career.svg';
+import ShareIcon from '@/assets/icons/exhibition/Share.svg';
+import ScrapIcon from '@/assets/icons/exhibition/Scrap.svg';
+import HeartIcon from '@/assets/icons/exhibition/Heart.svg';
+import * as styles from './TopBar.style';
+import Text from '../common/Text';
+import { COLORS } from '@/constants/styles';
+
+export interface TopbarProps {
+  imgUrl: string;
+  title: string;
+  artistName: string;
+}
+
+const TopBar = ({ imgUrl, title, artistName }: TopbarProps) => {
+  const onCareerClick = () => {};
+  const onHeartClick = () => {};
+  const onScrapClick = () => {};
+  const onShareClick = () => {};
+  const onFollowClick = () => {};
+  return (
+    <styles.TopBarContainer>
+      <styles.RowContainer>
+        <styles.LeftContainer>
+          <styles.RowContainer>
+            <Image
+              src={imgUrl}
+              width={96}
+              height={96}
+              alt="프로필이미지"
+              style={{ display: 'block', borderRadius: '50%' }}
+            />
+            <styles.ColContainer>
+              <Text color={COLORS.main.white} textStyleName="subtitle">
+                {title}
+              </Text>
+              <styles.RowContainer>
+                <Text color={COLORS.main.white} textStyleName="body1">
+                  {artistName}
+                </Text>
+                <div onClick={onFollowClick}>
+                  <Text color={COLORS.main.white} textStyleName="body1">
+                    팔로우
+                  </Text>
+                </div>
+              </styles.RowContainer>
+            </styles.ColContainer>
+          </styles.RowContainer>
+        </styles.LeftContainer>
+        <styles.RightContainer>
+          <styles.RowContainer>
+            <styles.Button onClick={onCareerClick}>
+              <CareerIcon />
+            </styles.Button>
+            <styles.Button onClick={onHeartClick}>
+              <HeartIcon />
+            </styles.Button>
+            <styles.Button onClick={onScrapClick}>
+              <ScrapIcon />
+            </styles.Button>
+            <styles.Button onClick={onShareClick}>
+              <ShareIcon />
+            </styles.Button>
+          </styles.RowContainer>
+        </styles.RightContainer>
+      </styles.RowContainer>
+    </styles.TopBarContainer>
+  );
+};
+export default TopBar;
