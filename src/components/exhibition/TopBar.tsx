@@ -9,6 +9,7 @@ import Text from '../common/Text';
 import { COLORS } from '@/constants/styles';
 import CareerModal from '../career/CareerModal';
 
+
 export interface TopbarProps {
   imgUrl: string;
   title: string;
@@ -71,6 +72,7 @@ const TopBar = ({ imgUrl, title, artistName }: TopbarProps) => {
                 <CareerIcon />
               </styles.Button>
             )}
+
             <styles.Button onClick={onHeartClick}>
               <HeartIcon />
             </styles.Button>
