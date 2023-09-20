@@ -9,7 +9,6 @@ import Text from '../common/Text';
 import { COLORS } from '@/constants/styles';
 import CareerModal from '../career/CareerModal';
 
-
 export interface TopbarProps {
   imgUrl: string;
   title: string;
