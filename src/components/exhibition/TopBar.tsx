@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import CareerIcon from '@/assets/icons/exhibition/Career.svg';
 import ShareIcon from '@/assets/icons/exhibition/Share.svg';
 import ScrapIcon from '@/assets/icons/exhibition/Scrap.svg';
@@ -6,6 +7,7 @@ import HeartIcon from '@/assets/icons/exhibition/Heart.svg';
 import * as styles from './TopBar.style';
 import Text from '../common/Text';
 import { COLORS } from '@/constants/styles';
+import CareerModal from '../career/CareerModal';
 
 export interface TopbarProps {
   imgUrl: string;
@@ -14,7 +16,16 @@ export interface TopbarProps {
 }
 
 const TopBar = ({ imgUrl, title, artistName }: TopbarProps) => {
-  const onCareerClick = () => {};
+  const [careerClick, setCareerClick] = useState(false);
+  const [portalElement, setPortalElement] = useState<Element | null>(null);
+
+  useEffect(() => {
+    setPortalElement(document.getElementById('root-modal'));
+  }, [careerClick]);
+
+  const onCareerClick = () => {
+    setCareerClick(!careerClick);
+  };
   const onHeartClick = () => {};
   const onScrapClick = () => {};
   const onShareClick = () => {};
@@ -50,9 +61,16 @@ const TopBar = ({ imgUrl, title, artistName }: TopbarProps) => {
         </styles.LeftContainer>
         <styles.RightContainer>
           <styles.RowContainer>
-            <styles.Button onClick={onCareerClick}>
-              <CareerIcon />
-            </styles.Button>
+            {careerClick && portalElement ? (
+              <CareerModal
+                careerClick={careerClick}
+                setCareerClick={setCareerClick}
+              />
+            ) : (
+              <styles.Button onClick={onCareerClick}>
+                <CareerIcon />
+              </styles.Button>
+            )}
             <styles.Button onClick={onHeartClick}>
               <HeartIcon />
             </styles.Button>

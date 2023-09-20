@@ -6,6 +6,7 @@ const nextConfig = {
   images: {
     domains: ['images.unsplash.com'],
   },
+  webpack5: true,
 
   webpack(config) {
     config.module.rules.push({
@@ -13,6 +14,9 @@ const nextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
     });
+
+    config.resolve.fallback = { fs: false };
+
     return config;
   },
 };
