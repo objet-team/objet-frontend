@@ -5,6 +5,7 @@ export const COLORS = {
     black: '#19191B',
   },
   bg: {
+    opa60White: 'rgba(255,255,255,0.6)',
     white: '#FFFFFF',
     black05: 'rgba(25, 25, 27, 0.05)',
     black70: 'rgba(25, 25, 27, 0.70)',

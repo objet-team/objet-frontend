@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 const Document = () => (
   <Html lang="en">
@@ -9,4 +9,6 @@ const Document = () => (
     </body>
   </Html>
 );
+
 export default Document;
+

@@ -35,3 +35,7 @@ export const ProfileImage = styled.div({
   borderRadius: '12px',
   backgroundColor: '#48A7FF',
 });
+
+export const ProfileClickWrapper = styled.div`
+  cursor: pointer;
+`;
