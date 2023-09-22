@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
+import DoorIcon from '@public/icons/exhibition/Door.svg';
 import { COLORS } from '@/constants/styles';
 import ArtistInfo, { ArtistInfoProps } from '../common/ArtistInfo';
 import Text from '../common/Text';
 import * as styles from './Exhibition.style';
-import DoorIcon from '@/assets/icons/exhibition/Door.svg';
 
 export interface IntroProps {
   title: string;

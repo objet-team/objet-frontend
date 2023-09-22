@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import LikeIcon from '@public/icons/heart.svg';
 import { COLORS } from '@/constants/styles';
 import Text from '@/components/common/Text';
-import LikeIcon from '@/assets/icons/heart.svg';
 import * as styles from './ArtItem.style';
 
 export interface ArtItemProps {

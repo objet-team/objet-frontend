@@ -1,7 +1,7 @@
 import React from 'react';
 import { COLORS } from '@/constants/styles';
 import Text from '@/components/common/Text';
-import FlagIcon from '@/assets/icons/flag.svg';
+import FlagIcon from '../../../../public/icons/flag.svg';
 import * as styles from './MainBanner.style';
 
 const MainBanner = () => (

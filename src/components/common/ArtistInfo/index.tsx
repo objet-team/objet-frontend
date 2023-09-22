@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ArtistBtn from '../Button/ArtistBtn';
+import ArtistBtn from '../Button/WhiteFillBtn';
 import * as styles from './ArtistInfo.style';
 import Text from '../Text';
 import { COLORS } from '@/constants/styles';
