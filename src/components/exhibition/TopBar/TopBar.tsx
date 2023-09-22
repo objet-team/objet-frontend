@@ -5,9 +5,9 @@ import ShareIcon from '@/assets/icons/exhibition/Share.svg';
 import ScrapIcon from '@/assets/icons/exhibition/Scrap.svg';
 import HeartIcon from '@/assets/icons/exhibition/Heart.svg';
 import * as styles from './TopBar.style';
-import Text from '../common/Text';
+import Text from '../../common/Text';
 import { COLORS } from '@/constants/styles';
-import CareerModal from '../career/CareerModal';
+import CareerModal from '../../career/CareerModal';
 
 export interface TopbarProps {
   imgUrl: string;

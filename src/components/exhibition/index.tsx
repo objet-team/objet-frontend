@@ -1,7 +1,9 @@
 import ArtistInfo from '../common/ArtistInfo';
 import * as styles from './Exhibition.style';
-import ExhibitionItem, { ExhibitionItemProps } from './ExhibitionItem';
-import TopBar from './TopBar';
+import ExhibitionItem, {
+  ExhibitionItemProps,
+} from './ExhibitionItem/ExhibitionItem';
+import TopBar from './TopBar/TopBar';
 
 export interface ExhibitionProps {
   title: string;

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import * as styles from './ExhibitionItem.style';
-import Text from '../common/Text';
+import Text from '../../common/Text';
 import { COLORS } from '@/constants/styles';
 
 export interface ExhibitionItemProps {
