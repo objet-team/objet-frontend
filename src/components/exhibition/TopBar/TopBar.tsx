@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import CareerIcon from '@/assets/icons/exhibition/Career.svg';
-import ShareIcon from '@/assets/icons/exhibition/Share.svg';
-import ScrapIcon from '@/assets/icons/exhibition/Scrap.svg';
-import HeartIcon from '@/assets/icons/exhibition/Heart.svg';
+import CareerIcon from '@public/icons/exhibition/Career.svg';
+import ShareIcon from '@public/icons/exhibition/Share.svg';
+import ScrapIcon from '@public/icons/exhibition/Scrap.svg';
+import HeartIcon from '@public/icons/exhibition/Heart.svg';
 import * as styles from './TopBar.style';
 import Text from '../../common/Text';
 import { COLORS } from '@/constants/styles';

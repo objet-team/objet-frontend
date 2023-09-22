@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import LogoIcon from '@public/icons/logo/LogoIcon.svg';
 import { COLORS } from '@/constants/styles';
-import LogoIcon from '@/assets/icons/logo/LogoIcon.svg';
 import Text from '@/components/common/Text';
 import * as styles from './NavigationBar.style';
 import LoginModal from '@/components/login/LoginModal';
