@@ -59,6 +59,12 @@ const ArtistRegisterModal = ({
           </styles.RowContainer>
           <styles.InputContainer />
         </styles.ColContainer>
+        <styles.CheckboxContainer>
+          <styles.CheckBox type="checkbox" />
+          <Text color={COLORS.font.black60} textStyleName="caption">
+            작가등록을 위한 개인정보 활용에 동의합니다
+          </Text>
+        </styles.CheckboxContainer>
         <styles.ButtonContainer>
           <PurpleFillBtn onClick={onClick} label="작가등록 신청하기" />
         </styles.ButtonContainer>

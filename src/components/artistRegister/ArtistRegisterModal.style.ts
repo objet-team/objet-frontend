@@ -35,7 +35,16 @@ export const RowContainer = styled.div`
   flex-direction: row;
 `;
 
-export const InputContainer = styled.input``;
+export const InputContainer = styled.input`
+  border-radius: 8px;
+  stroke: 1px;
+  border-color: ${COLORS.font.black20};
+  height: 48px;
+  background-color: transparent;
+  :focus {
+    border-color: ${COLORS.font.black20};
+  }
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -45,4 +54,18 @@ export const ButtonContainer = styled.div`
 export const ClosedButton = styled.div`
   text-align: right;
   cursor: pointer;
+`;
+
+export const CheckBox = styled.input`
+  width: 16px;
+  height: 16px;
+  border: 3px solid #707070;
+  accent-color: ${COLORS.main.purple};
+`;
+
+export const CheckboxContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
 `;
