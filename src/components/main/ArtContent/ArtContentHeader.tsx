@@ -10,6 +10,7 @@ import {
   SortFilters,
 } from '@/components/main/ArtContent/ArtContent.constant';
 import { FilterType } from '@/components/main/ArtContent/ArtContent';
+import ArtCategoryMenu from '@/components/common/ArtCategoryMenu/ArtCategoryMenu';
 
 interface ArtContentHeaderProps {
   filter: FilterType;
@@ -38,33 +39,7 @@ const ArtContentHeader = ({ filter, setFilter }: ArtContentHeaderProps) => {
             작가들의 감각적인 전시를 살펴보세요.
           </Text>
         </styles.TitleWrap>
-        <styles.CategoryFilterWrap>
-          {(Object.keys(CategoryFilters) as CategoryFilterType[]).map((c) => (
-            <styles.CategoryFilter
-              key={c}
-              onClick={() => onSelectCategoryFilter(c)}
-            >
-              <styles.Category
-                className={c === cFilter ? 'active-category' : ''}
-              >
-                <Text
-                  color={c === cFilter ? COLORS.main.purple : COLORS.main.white}
-                  textStyleName="body1"
-                  className="label"
-                >
-                  {CategoryFilters[c]}
-                </Text>
-                <Image
-                  src={`/category/${c}.png`}
-                  alt={c}
-                  fill
-                  className="background-img"
-                />
-              </styles.Category>
-              {c === cFilter && <styles.ActiveBackground />}
-            </styles.CategoryFilter>
-          ))}
-        </styles.CategoryFilterWrap>
+        <ArtCategoryMenu menu={cFilter} onClickMenu={onSelectCategoryFilter} />
         <styles.SortingFilterWrap>
           {(Object.keys(SortFilters) as SortFilterType[]).map((s, idx) => (
             <React.Fragment key={s}>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import HeartIcon from '@public/icons/heart.svg';
 import * as styles from './MyPageArtItem.style';
-import Text from '../common/Text';
+import Text from '@/components/common/Text';
 import { COLORS } from '@/constants/styles';
 
 interface MyPageArtItemProps {

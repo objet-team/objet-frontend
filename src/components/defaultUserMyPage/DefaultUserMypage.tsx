@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import WhiteFillBtn from '../common/Button/WhiteFillBtn';
-import UserInfo from '../common/UserInfo/UserInfo';
-import Banner from '../common/Banner/Banner';
+import WhiteFillBtn from '@/components/common/Button/WhiteFillBtn';
+import UserInfo from '@/components/common/UserInfo/UserInfo';
+import Banner from '@/components/common/Banner/Banner';
 import SelectCategory from './SelectCategory/SelectCategory';
 import ArtContentHeader from '../main/ArtContent/ArtContentHeader';
-import ArtCategory from '../common/ArtCategory/ArtCategory';
+import ArtCategory from '@/components/common/ArtCategoryMenu/ArtCategoryMenu';
 import { FilterType } from '@/components/main/ArtContent/ArtContent';
 import ArtSection from '../main/ArtSection';
 import MyPageArt from '../myPargeArtSection/MyPageArt';
