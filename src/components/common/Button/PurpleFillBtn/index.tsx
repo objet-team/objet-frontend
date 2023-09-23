@@ -2,8 +2,9 @@ import * as styles from './PurpleFillBtn.style.';
 
 interface PurpleFillButton {
   label: string;
+  onClick: () => void;
 }
-const PurpleFillBtn = ({ label }: PurpleFillButton) => (
-  <styles.Button>{label}</styles.Button>
+const PurpleFillBtn = ({ onClick, label }: PurpleFillButton) => (
+  <styles.Button onClick={onClick}>{label}</styles.Button>
 );
 export default PurpleFillBtn;
