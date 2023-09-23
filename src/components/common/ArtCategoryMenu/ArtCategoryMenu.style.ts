@@ -57,6 +57,7 @@ export const CategoryFilter = styled.div`
     width: 146px;
     height: 56px;
     border-radius: 100px;
+    background: rgba(255, 255, 255, 0.8);
   }
 
   .active-category .label {
