@@ -23,8 +23,8 @@ const MyPageArtItem = ({
     <styles.ImageContainer>
       <Image
         objectFit="contain"
-        width={300}
-        height={265}
+        width={400}
+        height={400}
         src={artImg}
         alt="작품"
       />

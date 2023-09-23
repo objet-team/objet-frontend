@@ -16,7 +16,7 @@ const DefaultUserMypage = () => {
     sort: 'recommend',
   });
   return (
-    <div>
+    <styles.Container>
       <Banner
         img="https://images.unsplash.com/photo-1542206395-9feb3edaa68d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2580&q=80"
         name="로지"
@@ -30,7 +30,7 @@ const DefaultUserMypage = () => {
         <ArtCategory filter={filter} setFilter={setFilter} />
         <MyPageArt />
       </styles.CenterContainer>
-    </div>
+    </styles.Container>
   );
 };
 export default DefaultUserMypage;

@@ -3,11 +3,13 @@ import styled from '@emotion/styled';
 export const ArtItemContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: calc(100% / 3);
+  width: 100%/3;
   gap: 8px;
   padding: 16px;
 `;
-export const ImageContainer = styled.div``;
+export const ImageContainer = styled.div`
+  width: 100%/3;
+`;
 
 export const RowContainer = styled.div`
   display: flex;
@@ -25,6 +27,6 @@ export const HeartContainer = styled.div`
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 300px;
+  width: 100%/3;
   justify-content: space-between;
 `;
