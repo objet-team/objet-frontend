@@ -14,3 +14,11 @@ export const FollowContainer = styled.div`
   flex-direction: row;
   gap: 4px;
 `;
+
+export const ColContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+`;

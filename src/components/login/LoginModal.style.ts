@@ -18,7 +18,7 @@ export const ModalBox = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${COLORS.bg.white};
-  width: 30rem;
+  width: 35rem;
   /* height: 13rem; */
   gap: 24px;
   padding: 30px;
@@ -29,6 +29,7 @@ export const TextBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
   padding: 10px;
   gap: 10px;
   flex-direction: column;
