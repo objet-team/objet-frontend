@@ -4,6 +4,7 @@ import * as styles from './UserInfo.style';
 import Text from '../Text';
 import { COLORS } from '@/constants/styles';
 import WhiteFillBtn from '../Button/WhiteFillBtn';
+import InputField from './InputField';
 
 interface UserInfoProps {
   img: string;
@@ -14,7 +15,10 @@ interface UserInfoProps {
 
 const UserInfo = ({ img, email, name, followCount }: UserInfoProps) => {
   const [editName, setEditName] = useState(false);
-  const onClick = () => {};
+
+  const onClick = () => {
+    setEditName(!editName);
+  };
   return (
     <styles.UserInfoContainer>
       <Image
@@ -38,9 +42,11 @@ const UserInfo = ({ img, email, name, followCount }: UserInfoProps) => {
           {followCount}
         </Text>
       </styles.FollowContainer>
-      <div onClick={onClick}>
-        <WhiteFillBtn label="프로필 수정하기" />
-      </div>
+      {editName ? (
+        <InputField />
+      ) : (
+        <WhiteFillBtn label="프로필 수정하기" onClick={onClick} />
+      )}
     </styles.UserInfoContainer>
   );
 };

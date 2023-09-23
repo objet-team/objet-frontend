@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CategoryFilterType, SortFilterType } from './ArtContent.constant';
 import ArtistSection from './ArtistSection/ArtistSection';
 import ArtContentHeader from './ArtContentHeader';
-import ArtSection from './ArtSection';
+import ArtSection from '@/components/main/ArtSection';
 import TopRankArtSection from './TopRankArtSection';
 
 import * as styles from './ArtContent.style';

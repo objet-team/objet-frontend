@@ -9,4 +9,5 @@ export const Button = styled.div`
   align-items: center;
   background-color: ${COLORS.main.white};
   color: ${COLORS.main.purple};
+  cursor: pointer;
 `;
