@@ -22,6 +22,7 @@ const DefaultUserMypage = () => {
         name="로지"
         email="a@naver.com"
         followCount={32}
+        isArtist={false}
       />
       <styles.CategoryContainer>
         <SelectCategory />
