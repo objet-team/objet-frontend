@@ -2,11 +2,9 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  stories: ['../**/*.stories.mdx', '../**/*.stories.@(js|jsx|ts|tsx)'],
   images: {
     domains: ['images.unsplash.com'],
   },
-  webpack5: true,
 
   webpack(config) {
     config.module.rules.push({
