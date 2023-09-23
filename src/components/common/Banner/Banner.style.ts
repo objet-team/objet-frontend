@@ -9,6 +9,6 @@ export const BannerContainer = styled.div`
   align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  filter: brightness(80%);
+  /* position: relative;
+  filter: brightness(80%); */
 `;
