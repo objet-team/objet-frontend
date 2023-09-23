@@ -1,8 +1,8 @@
+import CloseButton from '@public/icons/login/Login_close.svg';
 import * as styles from './LoginModal.style';
 import KakaoLoginButton from '../common/KakaoLoginButton/KakaoLoginButton';
 import Text from '../common/Text';
 import { COLORS } from '@/constants/styles';
-import CloseButton from '@/assets/button/CloseButton.svg';
 
 export interface LoginModalProps {
   loginClick: boolean;
