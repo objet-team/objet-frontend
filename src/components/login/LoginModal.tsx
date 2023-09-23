@@ -1,7 +1,7 @@
 import CloseButton from '@public/icons/login/Login_close.svg';
 import * as styles from './LoginModal.style';
-import KakaoLoginButton from '../common/KakaoLoginButton/KakaoLoginButton';
-import Text from '../common/Text';
+import KakaoLoginButton from '@/components/common/KakaoLoginButton/KakaoLoginButton';
+import Text from '@/components/common/Text';
 import { COLORS } from '@/constants/styles';
 
 export interface LoginModalProps {

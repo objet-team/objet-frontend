@@ -1,30 +1,12 @@
 import Image from 'next/image';
 import * as styles from './ExhibitionItem.style';
-import Text from '../../common/Text';
+import Text from '@/components/common/Text';
 import { COLORS } from '@/constants/styles';
+import { ExhibitionItem as ItemType } from '@/constants/types/exhibition';
 
-export interface ExhibitionItemProps {
-  name: string;
-  detail: string;
-  imageList: ImageProps[];
-  id: number;
-}
+interface ExhibitionItemProps extends Omit<ItemType, 'id'> {}
 
-export interface ImageProps {
-  width: number;
-  height: number;
-  xCor: number;
-  yCor: number;
-  imgUrl: string;
-  id: number;
-}
-
-const ExhibitionItem = ({
-  id,
-  name,
-  detail,
-  imageList,
-}: ExhibitionItemProps) => (
+const ExhibitionItem = ({ name, detail, imageList }: ExhibitionItemProps) => (
   <styles.Container>
     <styles.ColContainer>
       <Text color={COLORS.main.white} textStyleName="title">
