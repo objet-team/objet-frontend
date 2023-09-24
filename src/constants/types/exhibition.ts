@@ -1,21 +1,22 @@
 import { TextStyleName } from '../styles';
 
+export type ElementType = 'text' | 'image' | 'video' | 'space';
 export type AlignType = 'left' | 'center' | 'right';
 
-interface CommonElement {
+interface CommonElementProps {
   id: number;
   align: AlignType;
 }
 
 // 텍스트 요소
-export interface TextElement extends CommonElement {
+export interface TextElementProps extends CommonElementProps {
   type: 'text';
   sizeType: TextStyleName;
   content: string;
 }
 
 // 이미지 요소
-export interface ImageElement extends CommonElement {
+export interface ImageElementProps extends CommonElementProps {
   type: 'image';
   width: number;
   height: number;
@@ -23,17 +24,17 @@ export interface ImageElement extends CommonElement {
 }
 
 // 비디오 요소
-export interface VideoElement extends Omit<ImageElement, 'type'> {
+export interface VideoElementProps extends Omit<ImageElementProps, 'type'> {
   type: 'video';
 }
 
 // 여백 요소
-export interface SpaceElement extends CommonElement {
+export interface SpaceElementProps extends CommonElementProps {
   type: 'space';
 }
 
-export type ElementType =
-  | TextElement
-  | ImageElement
-  | VideoElement
-  | SpaceElement;
+export type ElementProps =
+  | TextElementProps
+  | ImageElementProps
+  | VideoElementProps
+  | SpaceElementProps;

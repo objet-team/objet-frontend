@@ -14,7 +14,6 @@ export const Field = styled.div`
 `;
 
 export const TextInput = styled.textarea`
-  /*border: none;*/
   width: 100%;
   border: 1px solid ${COLORS.font.black20};
   padding: 21px 20px;
@@ -33,25 +32,7 @@ export const TextInput = styled.textarea`
   }
 `;
 
-export const EditorWrapper = styled.div`
-  width: 100%;
-  height: 800px;
-  border: 1px solid ${COLORS.font.black20};
+export const UploadWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-
-  .text-input {
-    border: none;
-    background-color: ${COLORS.bg.black05};
-  }
-
-  .left-element {
-    text-align: left;
-  }
-  .center-element {
-    text-align: center;
-  }
-  .right-element {
-    text-align: right;
-  }
+  gap: 20px;
 `;

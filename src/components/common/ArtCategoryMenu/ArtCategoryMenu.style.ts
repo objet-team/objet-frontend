@@ -24,6 +24,7 @@ export const CategoryFilter = styled.div`
     height: 56px;
     border-radius: 100px;
     background: rgba(255, 255, 255, 0.8);
+    z-index: 1;
   }
 
   .active-category .label {
@@ -58,5 +59,4 @@ export const ActiveBackground = styled.div`
   background-color: ${COLORS.main.purple};
   position: absolute;
   top: 0px;
-  z-index: -1;
 `;
