@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import React from 'react';
 import * as styles from './SortingMenu.style';
 import Text from '../Text';
 import { COLORS } from '@/constants/styles';
@@ -9,30 +9,24 @@ interface SortingMenuProps {
   onClickMenu: (menu: SortingType) => void;
 }
 
-// 작품 카테고리 메뉴
+// 작품 or 굿즈 정렬 메뉴
 const SortingMenu = ({ menu, onClickMenu }: SortingMenuProps) => (
-  <styles.CategoryFilterWrap>
-    {(Object.keys(SortingLabels) as SortingType[]).map((c) => (
-      <styles.CategoryFilter key={c} onClick={() => onClickMenu(c)}>
-        <styles.Category className={c === menu ? 'active-category' : ''}>
+  <styles.SortingFilterWrap>
+    {(Object.keys(SortingLabels) as SortingType[]).map((s, idx) => (
+      <React.Fragment key={s}>
+        <styles.Sort onClick={() => onClickMenu(s)}>
           <Text
-            color={c === menu ? COLORS.main.purple : COLORS.main.white}
+            color={s === menu ? COLORS.font.black100 : COLORS.font.black20}
             textStyleName="body1"
             className="label"
           >
-            {SortingLabels[c]}
+            {SortingLabels[s]}
           </Text>
-          <Image
-            src={`/category/${c}.png`}
-            alt={c}
-            fill
-            className="background-img"
-          />
-        </styles.Category>
-        {c === menu && <styles.ActiveBackground />}
-      </styles.CategoryFilter>
+        </styles.Sort>
+        {idx !== 3 && <styles.Hr />}
+      </React.Fragment>
     ))}
-  </styles.CategoryFilterWrap>
+  </styles.SortingFilterWrap>
 );
 
 export default SortingMenu;

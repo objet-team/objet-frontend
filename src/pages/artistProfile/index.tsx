@@ -1,4 +1,4 @@
-import ArtistProfile from '@/components/ArtistProfile';
+import ArtistProfile from '@/components/common/ArtistProfile';
 import NavigationBar from '@/components/common/NavigationBar';
 
 const ArtistProfilePage = () => (
