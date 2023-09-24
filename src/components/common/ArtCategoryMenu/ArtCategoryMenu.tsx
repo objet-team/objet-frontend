@@ -11,7 +11,7 @@ interface ArtCategoryMenuProps {
 
 // 작품 카테고리 메뉴
 const ArtCategoryMenu = ({ menu, onClickMenu }: ArtCategoryMenuProps) => (
-  <styles.CategoryFilterWrap>
+  <styles.MenuWrapper>
     {(Object.keys(CategoryLabels) as CategoryType[]).map((c) => (
       <styles.CategoryFilter key={c} onClick={() => onClickMenu(c)}>
         <styles.Category className={c === menu ? 'active-category' : ''}>
@@ -32,7 +32,7 @@ const ArtCategoryMenu = ({ menu, onClickMenu }: ArtCategoryMenuProps) => (
         {c === menu && <styles.ActiveBackground />}
       </styles.CategoryFilter>
     ))}
-  </styles.CategoryFilterWrap>
+  </styles.MenuWrapper>
 );
 
 export default ArtCategoryMenu;

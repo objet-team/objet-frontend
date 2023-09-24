@@ -1,45 +1,11 @@
 import styled from '@emotion/styled';
 import { COLORS } from '@/constants/styles';
 
-export const Wrapper = styled.div`
-  width: 100%;
-`;
-
-export const HeaderWrapper = styled.div`
-  width: 100%;
-  padding: 48px 80px;
-`;
-
-export const Header = styled.div`
-  width: fit-content;
-  margin: 0px auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-export const TitleWrap = styled.div`
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-`;
-
-export const CategoryFilterWrap = styled.div`
+export const MenuWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
   margin: 24px 0px 40px;
-`;
-
-export const SortingFilterWrap = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  .label {
-    cursor: pointer;
-  }
 `;
 
 export const CategoryFilter = styled.div`
@@ -86,8 +52,6 @@ export const Category = styled.div`
   }
 `;
 
-export const Sort = styled.div``;
-
 export const ActiveBackground = styled.div`
   width: 100%;
   height: 100%;
@@ -95,20 +59,4 @@ export const ActiveBackground = styled.div`
   position: absolute;
   top: 0px;
   z-index: -1;
-`;
-
-export const Hr = styled.div`
-  width: 1px;
-  height: 21px;
-  background-color: ${COLORS.font.black20};
-`;
-
-export const ContentWrap = styled.div`
-  display: grid;
-`;
-
-export const TopRankWrap = styled.div`
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
 `;

@@ -11,7 +11,7 @@ interface SortingMenuProps {
 
 // 작품 or 굿즈 정렬 메뉴
 const SortingMenu = ({ menu, onClickMenu }: SortingMenuProps) => (
-  <styles.SortingFilterWrap>
+  <styles.MenuWrapper>
     {(Object.keys(SortingLabels) as SortingType[]).map((s, idx) => (
       <React.Fragment key={s}>
         <styles.Sort onClick={() => onClickMenu(s)}>
@@ -26,7 +26,7 @@ const SortingMenu = ({ menu, onClickMenu }: SortingMenuProps) => (
         {idx !== 3 && <styles.Hr />}
       </React.Fragment>
     ))}
-  </styles.SortingFilterWrap>
+  </styles.MenuWrapper>
 );
 
 export default SortingMenu;
