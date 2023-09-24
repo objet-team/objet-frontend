@@ -3,7 +3,6 @@ import { recoilPersist } from 'recoil-persist';
 
 const { persistAtom } = recoilPersist({
   key: 'userInfoLocalStorage',
-  storage: localStorage,
 });
 
 export interface UserInfoAtomProps {

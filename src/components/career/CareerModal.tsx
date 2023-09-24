@@ -1,4 +1,4 @@
-import * as styles from './CarrerModal.style';
+import * as styles from './CareerModal.style';
 import { COLORS } from '@/constants/styles';
 import Text from '../common/Text';
 import CloseButton from '@/assets/button/CloseButton.svg';
