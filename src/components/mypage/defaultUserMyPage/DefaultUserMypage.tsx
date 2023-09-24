@@ -3,10 +3,10 @@ import WhiteFillBtn from '@/components/common/Button/WhiteFillBtn';
 import UserInfo from '@/components/common/UserInfo/UserInfo';
 import Banner from '@/components/common/Banner/Banner';
 import SelectCategory from './SelectCategory/SelectCategory';
-import ArtContentHeader from '../main/ArtContent/ArtContentHeader';
+import ArtContentHeader from '../../main/ArtContent/ArtContentHeader';
 import ArtCategory from '@/components/common/ArtCategoryMenu/ArtCategoryMenu';
 import { FilterType } from '@/components/main/ArtContent/ArtContent';
-import ArtSection from '../main/ArtSection';
+import ArtSection from '../../main/ArtSection';
 import MyPageArt from '../myPargeArtSection/MyPageArt';
 import * as styles from './DefaultUserMypage.style';
 

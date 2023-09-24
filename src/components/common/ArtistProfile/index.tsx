@@ -1,5 +1,5 @@
 import Banner from '@/components/common/Banner/Banner';
-import MyPageArt from '../myPargeArtSection/MyPageArt';
+import MyPageArt from '../../mypage/myPargeArtSection/MyPageArt';
 import SelectCategory from './SelectCategory/SelectCategory';
 import * as styles from './ArtistProfile.style';
 
