@@ -1,5 +1,5 @@
 import NavigationBar from '@/components/common/NavigationBar';
-import DefaultUserMypage from '@/components/mypage/DefaultUserMypage/DefaultUserMypage';
+import DefaultUserMypage from '@/components/mypage/DefaultUserMypage';
 
 const MypagePage = () => (
   <div>

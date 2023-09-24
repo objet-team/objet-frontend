@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { CategoryFilterType, SortFilterType } from './ArtContent.constant';
 import ArtistSection from './ArtistSection/ArtistSection';
 import ArtSection from '@/components/main/ArtSection';
 import TopRankArtSection from './TopRankArtSection';
@@ -8,10 +7,11 @@ import { COLORS } from '@/constants/styles';
 import SortingMenu from '@/components/common/SortingMenu/SortingMenu';
 import ArtCategoryMenu from '@/components/common/ArtCategoryMenu';
 import * as styles from './ArtContent.style';
+import { CategoryType, SortingType } from '@/constants/types/art';
 
 export interface FilterType {
-  category: CategoryFilterType;
-  sort: SortFilterType;
+  category: CategoryType;
+  sort: SortingType;
 }
 
 const ArtContent = () => {
@@ -22,11 +22,11 @@ const ArtContent = () => {
 
   const { category: cFilter, sort: sFilter } = filter;
 
-  const onSelectCategoryFilter = (c: CategoryFilterType) => {
+  const onSelectCategoryFilter = (c: CategoryType) => {
     setFilter((prev) => ({ ...prev, category: c }));
   };
 
-  const onSelectSortFilter = (s: SortFilterType) => {
+  const onSelectSortFilter = (s: SortingType) => {
     setFilter((prev) => ({ ...prev, sort: s }));
   };
 
