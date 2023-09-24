@@ -5,7 +5,7 @@ import ShareIcon from '@public/icons/exhibition/Share.svg';
 import ScrapIcon from '@public/icons/exhibition/Scrap.svg';
 import HeartIcon from '@public/icons/exhibition/Heart.svg';
 import * as styles from './TopBar.style';
-import Text from '../../common/Text';
+import Text from '@/components/common/Text';
 import { COLORS } from '@/constants/styles';
 import CareerModal from '../../career/CareerModal';
 

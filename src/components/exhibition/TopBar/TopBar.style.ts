@@ -1,19 +1,27 @@
 import styled from '@emotion/styled';
+import { COLORS } from '@/constants/styles';
 
 export const TopBarContainer = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
+
+  width: 100%;
+  padding: 80px;
+  background-color: ${COLORS.main.black};
 `;
 
-export const Button = styled.div`
-  padding: 20px;
-`;
+export const Button = styled.button``;
+
 export const RowContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 20px;
 `;
+
 export const ColContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,11 +30,5 @@ export const ColContainer = styled.div`
   align-items: center;
 `;
 
-export const LeftContainer = styled.div`
-  position: absolute;
-  left: 0;
-`;
-export const RightContainer = styled.div`
-  position: absolute;
-  right: 0;
-`;
+export const LeftContainer = styled.div``;
+export const RightContainer = styled.div``;

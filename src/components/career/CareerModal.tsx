@@ -1,8 +1,8 @@
 import * as styles from './CareerModal.style';
 import { COLORS } from '@/constants/styles';
-import Text from '../common/Text';
+import Text from '@/components/common/Text';
 import CloseButton from '@/assets/button/CloseButton.svg';
-import PurpleFillBtn from '../common/Button/PurpleFillBtn';
+import PurpleFillBtn from '@/components/common/Button/PurpleFillBtn';
 
 export interface CareerModalProps {
   careerClick: boolean;
@@ -55,7 +55,7 @@ const CareerModal = ({ careerClick, setCareerClick }: CareerModalProps) => {
           </styles.RowContainer>
           <styles.InputContainer />
         </styles.ColContainer>
-        <PurpleFillBtn label="채용 제안하기" onClick={onClick} />
+        <PurpleFillBtn label="채용 제안하기" onClick={() => {}} />
       </styles.ModalBox>
     </styles.ModalBackground>
   );
