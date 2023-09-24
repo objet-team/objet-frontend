@@ -55,7 +55,7 @@ const CareerModal = ({ careerClick, setCareerClick }: CareerModalProps) => {
           </styles.RowContainer>
           <styles.InputContainer />
         </styles.ColContainer>
-        <PurpleFillBtn label="채용 제안하기" onClick={onClick} />
+        <PurpleFillBtn label="채용 제안하기" onClick={() => {}} />
       </styles.ModalBox>
     </styles.ModalBackground>
   );
