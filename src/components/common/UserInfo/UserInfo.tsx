@@ -43,7 +43,10 @@ const UserInfo = ({ img, email, name, followCount }: UserInfoProps) => {
         </Text>
       </styles.FollowContainer>
       {editName ? (
-        <InputField />
+        <styles.ColContainer>
+          <InputField />
+          <WhiteFillBtn label="프로필 수정완료" onClick={onClick} />
+        </styles.ColContainer>
       ) : (
         <WhiteFillBtn label="프로필 수정하기" onClick={onClick} />
       )}
