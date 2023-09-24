@@ -9,6 +9,7 @@ import { FilterType } from '@/components/main/ArtContent/ArtContent';
 import ArtSection from '../main/ArtSection';
 import MyPageArt from '../myPargeArtSection/MyPageArt';
 import * as styles from './DefaultUserMypage.style';
+import SelectFilter from './SelectFilter/SelectFilter';
 
 const DefaultUserMypage = () => {
   const [filter, setFilter] = useState<FilterType>({
@@ -24,9 +25,14 @@ const DefaultUserMypage = () => {
         followCount={32}
         isArtist={false}
       />
-      <styles.CategoryContainer>
-        <SelectCategory />
-      </styles.CategoryContainer>
+      <styles.BannerContainer>
+        <styles.CategoryContainer>
+          <SelectCategory />
+        </styles.CategoryContainer>
+        <styles.CategoryContainer>
+          <SelectFilter />
+        </styles.CategoryContainer>
+      </styles.BannerContainer>
       <styles.CenterContainer>
         <ArtCategory filter={filter} setFilter={setFilter} />
         <MyPageArt />

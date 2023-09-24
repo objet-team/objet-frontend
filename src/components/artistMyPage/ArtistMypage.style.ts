@@ -3,12 +3,11 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 `;
 export const CategoryContainer = styled.div`
   justify-content: flex-start;
-  padding-left: 40px;
-  padding-top: 20px;
+  padding: 20px;
 `;
 
 export const BannerContainer = styled.div`

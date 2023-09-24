@@ -2,6 +2,7 @@ import Banner from '../common/Banner/Banner';
 import MyPageArt from '../myPargeArtSection/MyPageArt';
 import SelectCategory from './SelectCategory/SelectCategory';
 import * as styles from './ArtistProfile.style';
+import SelectFilter from './SelectFilter/SelectFilter';
 
 const ArtistProfile = () => (
   <styles.Container>
@@ -12,9 +13,14 @@ const ArtistProfile = () => (
       part="UX/UI"
       info="유어슈 미녀 로지"
     />
-    <styles.CategoryContainer>
-      <SelectCategory />
-    </styles.CategoryContainer>
+    <styles.BannerContainer>
+      <styles.CategoryContainer>
+        <SelectCategory />
+      </styles.CategoryContainer>
+      <styles.CategoryContainer>
+        <SelectFilter />
+      </styles.CategoryContainer>
+    </styles.BannerContainer>
     <MyPageArt />
   </styles.Container>
 );
