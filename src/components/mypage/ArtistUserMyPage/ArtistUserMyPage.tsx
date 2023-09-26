@@ -1,4 +1,4 @@
-import SelectCategory from '@/components/common/ArtistProfile/SelectCategory/SelectCategory';
+import SelectCategory from '@/components/ArtistProfile/SelectCategory/SelectCategory';
 import * as styles from './ArtistUserMyPage.style';
 import MyPageArt from '../myPargeArtSection/MyPageArt';
 import ArtistBanner from '@/components/common/Banner/ArtistUserBanner';
