@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 import { COLORS } from '@/constants/styles';
 
 export const Wrapper = styled.div`
@@ -26,23 +27,45 @@ export const ContentWrapper = styled.div`
   }
 `;
 
+export const TextElement = styled.div`
+  position: relative;
+`;
+
+export const SideWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .next-btn {
+    color: ${COLORS.bg.white};
+    background-color: ${COLORS.main.purple};
+  }
+`;
+
+export const Button = styled.button`
+  width: 100%;
+  height: 40px;
+  border: 1px solid ${COLORS.main.purple};
+  color: ${COLORS.main.purple};
+`;
+
+export const PreviewButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
+`;
+
 export const MenusWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-`;
-
-export const ButtonsWrapper = styled.div``;
-
-export const TextInput = styled.input`
-  width: 100%;
-  padding: 21px 20px;
-  border: none;
-  background-color: ${COLORS.bg.black05};
-
-  color: ${COLORS.font.black60};
-  font-size: 16px;
-  font-weight: 600;
 `;
 
 export const Menu = styled.button`
@@ -65,4 +88,8 @@ export const FileInput = styled.input`
   top: 0;
   left: 0;
   opacity: 0;
+`;
+
+export const TextInputWrapper = styled.div`
+  position: relative;
 `;
