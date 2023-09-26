@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
 import { COLORS } from '@/constants/styles';
 
 export const Wrapper = styled.div`
@@ -15,20 +14,6 @@ export const ContentWrapper = styled.div`
   padding: 21px 20px;
   display: flex;
   flex-direction: column;
-
-  .left-element {
-    text-align: left;
-  }
-  .center-element {
-    text-align: center;
-  }
-  .right-element {
-    text-align: right;
-  }
-`;
-
-export const TextElement = styled.div`
-  position: relative;
 `;
 
 export const SideWrapper = styled.div`

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { useRecoilState } from 'recoil';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
 import {
   AlignType,
   ElementProps,
@@ -9,9 +9,10 @@ import {
 } from '@/constants/types/exhibition';
 import { TextStyleName, COLORS } from '@/constants/styles';
 import Text from '@/components/common/Text';
-import * as styles from './ContentEditor.style';
 import TextElementInput from './TextElementInput';
-import { editorAtom } from '@/states/EditorAtom';
+import { editorContentAtom } from '@/states/ExhibitionAtom';
+import Content from '@/components/exhibition/Content';
+import * as styles from './ContentEditor.style';
 
 interface ContentEditorProps {
   placeholder?: string;
@@ -20,7 +21,7 @@ interface ContentEditorProps {
 const ContentEditor = ({ placeholder }: ContentEditorProps) => {
   const router = useRouter();
   const [editorMode, setEditorMode] = useState<ElementType | null>(null);
-  const [data, setData] = useRecoilState<ElementProps[]>(editorAtom);
+  const [data, setData] = useRecoilState<ElementProps[]>(editorContentAtom);
 
   // 텍스트 요소 추가 함수
   const addTextElement = (
@@ -116,55 +117,16 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
     },
   };
 
-  // 컨텐츠 요소들을 렌더링하는 함수
-  const renderElement = (element: ElementProps) => {
-    // align
-    switch (element.type) {
-      case 'text': {
-        const { content, sizeType, align } = element;
-        return (
-          <styles.TextElement className={`${align}-element`}>
-            <Text color={COLORS.main.black} textStyleName={sizeType}>
-              {content}
-            </Text>
-          </styles.TextElement>
-        );
-      }
-      case 'image': {
-        const { id, url, width, height } = element;
-        return (
-          <Image
-            src={url}
-            alt={`exhibition-img-${id}`}
-            width={width}
-            height={height}
-          />
-        );
-      }
-      case 'space': {
-        return <styles.Space />;
-      }
-      default: {
-        return <>wrong element</>;
-      }
-    }
-  };
-
   return (
     <styles.Wrapper>
       <styles.ContentWrapper>
-        {placeholder && data.length < 1 && (
+        {placeholder && !data.length && (
           <Text textStyleName="body1" color={COLORS.font.black60}>
             {placeholder}
           </Text>
         )}
 
-        {data.length > 0 &&
-          data.map((element) => (
-            <React.Fragment key={element.id}>
-              {renderElement(element)}
-            </React.Fragment>
-          ))}
+        {data.length > 0 && <Content isEditing data={data} />}
 
         {editorMode === 'text' && (
           <TextElementInput
@@ -198,13 +160,16 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
           ))}
         </styles.MenusWrapper>
         <styles.ButtonsWrapper>
-          <styles.Button className="next-btn" onClick={() => {}}>
+          <styles.Button
+            className="next-btn"
+            onClick={() => router.push('/exhibition/next/intro')}
+          >
             다음
           </styles.Button>
           <styles.Button onClick={() => {}}>임시 저장하기</styles.Button>
         </styles.ButtonsWrapper>
         <styles.PreviewButton
-          onClick={() => router.push('/exhibition/preview')}
+          onClick={() => router.push('/exhibition/preview/intro')}
         >
           <Image
             src="/icons/editor/preview.svg"
