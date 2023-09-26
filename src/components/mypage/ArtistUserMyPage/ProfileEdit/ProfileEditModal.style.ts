@@ -43,9 +43,7 @@ export const InputContainer = styled.input`
   border-width: 0.8px;
 `;
 export const ImageContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 `;
 
 export const ButtonContainer = styled.div`
@@ -70,4 +68,24 @@ export const CheckboxContainer = styled.div`
   flex-direction: row;
   gap: 4px;
   align-items: center;
+`;
+export const EditContainer = styled.div`
+  position: absolute;
+  left: 70px;
+  top: 70px;
+  cursor: pointer;
+`;
+export const TopContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const DropDownInput = styled.input`
+  border-radius: 8px;
+  border-color: ${COLORS.font.black20};
+  height: 48px;
+  background-color: transparent;
+  border-width: 0.8px;
+  width: 100%;
 `;
