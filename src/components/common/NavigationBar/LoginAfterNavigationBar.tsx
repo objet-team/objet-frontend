@@ -6,6 +6,7 @@ import Text from '@/components/common/Text';
 import * as styles from './NavigationBar.style';
 import LoginModal from '@/components/login/LoginModal';
 import ArtistRegisterModal from '@/components/artistRegister/ArtistRegisterModal';
+import CartIcon from '@public/icons/Cart.svg';
 
 const LoginAfterNavigationBar = () => {
   const [registerClick, setRegisterClick] = useState(false);
@@ -32,7 +33,7 @@ const LoginAfterNavigationBar = () => {
               홈
             </Text>
           </Link>
-          <Link href="/">
+          <Link href="/shop">
             <Text color={COLORS.font.black100} textStyleName="body1">
               굿즈샵
             </Text>
@@ -40,6 +41,7 @@ const LoginAfterNavigationBar = () => {
         </styles.NavMenu>
         <styles.ProfileMenu>
           <styles.ProfileImage />
+          <CartIcon />
           {registerClick && portalElement ? (
             <ArtistRegisterModal
               setRegisterClick={setRegisterClick}
