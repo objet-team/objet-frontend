@@ -8,17 +8,13 @@ import LoginModal from '@/components/login/LoginModal';
 import ArtistRegisterModal from '@/components/artistRegister/ArtistRegisterModal';
 
 const LoginAfterNavigationBar = () => {
-  const [loginClick, setLoginClick] = useState(false);
   const [registerClick, setRegisterClick] = useState(false);
   const [portalElement, setPortalElement] = useState<Element | null>(null);
 
   useEffect(() => {
     setPortalElement(document.getElementById('root-modal'));
-  }, [loginClick || registerClick]);
-  const onLoginClick = () => {
-    console.log(loginClick);
-    setLoginClick(!loginClick);
-  };
+  }, [registerClick]);
+
   const onRegisterClick = () => {
     setRegisterClick(!registerClick);
   };
