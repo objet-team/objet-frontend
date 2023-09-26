@@ -29,7 +29,7 @@ export interface VideoElementProps extends Omit<ImageElementProps, 'type'> {
 }
 
 // 여백 요소
-export interface SpaceElementProps extends CommonElementProps {
+export interface SpaceElementProps extends Omit<CommonElementProps, 'align'> {
   type: 'space';
 }
 
