@@ -44,6 +44,8 @@
         "unnamedComponents": "arrow-function"
       }
     ],
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+
+    "ignorePatterns": [".eslintrc.cjs"]
   }
 }

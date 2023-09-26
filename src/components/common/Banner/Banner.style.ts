@@ -12,3 +12,15 @@ export const BannerContainer = styled.div`
   /* position: relative;
   filter: brightness(80%); */
 `;
+export const ShopBannerContainer = styled.div`
+  width: 100vw;
+  height: 362px;
+  background-image: url('/shop/ShopImg.png') !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* position: relative;
+  filter: brightness(80%); */
+`;

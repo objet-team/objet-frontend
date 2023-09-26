@@ -36,7 +36,7 @@ const NavigationBar = () => {
               홈
             </Text>
           </Link>
-          <Link href="/">
+          <Link href="/shop">
             <Text color={COLORS.font.black100} textStyleName="body1">
               굿즈샵
             </Text>
