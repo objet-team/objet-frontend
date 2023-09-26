@@ -1,7 +1,7 @@
+import CloseButton from '@public/icons/login/Login_close.svg';
 import * as styles from './CareerModal.style';
 import { COLORS } from '@/constants/styles';
 import Text from '@/components/common/Text';
-import CloseButton from '@/assets/button/CloseButton.svg';
 import PurpleFillBtn from '@/components/common/Button/PurpleFillBtn';
 
 export interface CareerModalProps {
@@ -16,9 +16,9 @@ const CareerModal = ({ careerClick, setCareerClick }: CareerModalProps) => {
   return (
     <styles.ModalBackground>
       <styles.ModalBox>
-        <div onClick={onClick}>
+        <styles.ClosedButton onClick={onClick}>
           <CloseButton />
-        </div>
+        </styles.ClosedButton>
         <Text color={COLORS.main.black} textStyleName="subtitle">
           채용제안서를 위한 몇가지 정보를 입력해주세요
         </Text>
@@ -55,7 +55,15 @@ const CareerModal = ({ careerClick, setCareerClick }: CareerModalProps) => {
           </styles.RowContainer>
           <styles.InputContainer />
         </styles.ColContainer>
-        <PurpleFillBtn label="채용 제안하기" onClick={() => {}} />
+        <styles.CheckboxContainer>
+          <styles.CheckBox type="checkbox" />
+          <Text color={COLORS.font.black60} textStyleName="caption">
+            채용제안을 위한 개인정보 활용에 동의합니다
+          </Text>
+        </styles.CheckboxContainer>
+        <styles.ButtonContainer>
+          <PurpleFillBtn label="채용 제안하기" onClick={() => {}} />
+        </styles.ButtonContainer>
       </styles.ModalBox>
     </styles.ModalBackground>
   );
