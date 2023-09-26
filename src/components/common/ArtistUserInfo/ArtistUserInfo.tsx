@@ -1,10 +1,11 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import WhiteFillBtn from '../Button/WhiteFillBtn';
 import PurpleFillBtn from '../Button/PurpleFillBtn';
 import * as styles from './ArtistUserInfo.style';
 import Text from '../Text';
 import { COLORS } from '@/constants/styles';
+import ArtistProfileEditModal from '@/components/mypage/ArtistUserMyPage/ProfileEdit/ProfileEditModal';
 
 export interface ArtistUserInfoProps {
   img: string;
@@ -25,13 +26,18 @@ const ArtistUserInfo = ({
   follower,
   following,
 }: ArtistUserInfoProps) => {
-  const [follow, setFollow] = useState(false);
-  const onFollowClick = () => {
-    setFollow(!follow);
+  const [editClick, setEditClick] = useState(false);
+  const [portalElement, setPortalElement] = useState<Element | null>(null);
+  useEffect(() => {
+    setPortalElement(document.getElementById('root-modal'));
+  }, [editClick]);
+
+  const onEditClick = () => {
+    setEditClick(!editClick);
   };
   return (
     <styles.ArtistInfoContainer>
-      <styles.ColContainer gap="20px">
+      <styles.ColContainer gap="12px">
         <styles.ColContainer gap="8px">
           <Text color={COLORS.main.white} textStyleName="subtitle">
             {name}
@@ -78,7 +84,14 @@ const ArtistUserInfo = ({
             </Text>
           </styles.TextContainer>
         </styles.TextContainer>
-        <WhiteFillBtn label="프로필 수정하기" onClick={onFollowClick} />
+        {portalElement && editClick ? (
+          <ArtistProfileEditModal
+            editClick={editClick}
+            setEditClick={setEditClick}
+          />
+        ) : (
+          <WhiteFillBtn label="프로필 수정하기" onClick={onEditClick} />
+        )}
       </styles.ColContainer>
     </styles.ArtistInfoContainer>
   );
