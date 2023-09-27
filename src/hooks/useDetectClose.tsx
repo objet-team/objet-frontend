@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const useDetectClose = (
   ref: React.MutableRefObject<HTMLDivElement | null>,
   initialState: boolean,
-) => {
+): [boolean, React.Dispatch<React.SetStateAction<boolean>>] => {
   const [isOpen, setIsOpen] = useState(initialState);
 
   useEffect(() => {

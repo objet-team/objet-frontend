@@ -3,8 +3,8 @@ import { List } from './DropDown.style';
 interface DropDownProps {
   value: string;
   isOpen: boolean;
-  setDesignTypeIdentify: any;
-  setIsOpen: any;
+  setDesignTypeIdentify: React.Dispatch<React.SetStateAction<string>>;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const DropDown = ({
   value,
