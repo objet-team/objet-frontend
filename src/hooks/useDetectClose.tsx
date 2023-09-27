@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
 
-const useDetectClose = (ref: any, initialState: any) => {
+const useDetectClose = (
+  ref: React.MutableRefObject<HTMLDivElement | null>,
+  initialState: boolean,
+) => {
   const [isOpen, setIsOpen] = useState(initialState);
 
   useEffect(() => {
-    const pageClickEvent = (e) => {
+    // 유니온 타입으로 문제 해결
+    const pageClickEvent = (e: React.BaseSyntheticEvent | MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target)) {
         setIsOpen(!isOpen);
       }

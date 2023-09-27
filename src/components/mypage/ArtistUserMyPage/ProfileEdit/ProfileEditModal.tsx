@@ -20,7 +20,7 @@ const ArtistProfileEditModal = ({
   editClick,
   setEditClick,
 }: ArtistProfileEditModalProps) => {
-  const dropDownRef = useRef(null);
+  const dropDownRef = useRef<HTMLDivElement | null>(null);
   const [designTypeIdentify, setDesignTypeIdentify] = useState('');
   const [name, onChangeName] = useInput('');
   const [description, onChangeDescription] = useInput('');
@@ -81,7 +81,7 @@ const ArtistProfileEditModal = ({
           <div>
             <div ref={dropDownRef}>
               <styles.DropDownInput
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={onDropDownClick}
                 type="button"
                 value={designTypeIdentify}
                 placeholder="˯"
