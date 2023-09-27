@@ -8,6 +8,7 @@ import SortingMenu from '@/components/common/SortingMenu/SortingMenu';
 import ArtCategoryMenu from '@/components/common/ArtCategoryMenu';
 import * as styles from './ArtContent.style';
 import { CategoryType, SortingType } from '@/constants/types/art';
+import { useGetProductPopular } from '@/hooks/useGetProductPopular';
 
 export interface FilterType {
   category: CategoryType;
