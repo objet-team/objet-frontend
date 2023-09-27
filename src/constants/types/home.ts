@@ -1,4 +1,4 @@
-export interface GetProductPopular {
+export interface GetProductData {
   rank: number;
   productId: number;
   title: string;
@@ -10,5 +10,9 @@ export interface GetProductPopular {
 }
 
 export interface GetProductPopularDto {
-  productInfos: GetProductPopular[];
+  productInfos: GetProductData[];
+}
+
+export interface GetProductNewDto {
+  productInfos: GetProductData[];
 }
