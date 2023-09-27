@@ -4,6 +4,14 @@ const nextConfig = {
   images: {
     domains: ['images.unsplash.com'],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+      },
+    ];
+  },
 
   webpack(config) {
     config.module.rules.push({
