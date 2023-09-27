@@ -28,14 +28,16 @@ const Content = ({ isEditing = false, data }: ContentProps) => {
         );
       }
       case 'image': {
-        const { id, url, width, height } = element;
+        const { id, url, width, height, align } = element;
         return (
-          <Image
-            src={url}
-            alt={`exhibition-img-${id}`}
-            width={width}
-            height={height}
-          />
+          <styles.ImageElement className={`${align}-element`}>
+            <Image
+              src={url}
+              alt="exhibition-img"
+              width={width}
+              height={height}
+            />
+          </styles.ImageElement>
         );
       }
       case 'space': {
