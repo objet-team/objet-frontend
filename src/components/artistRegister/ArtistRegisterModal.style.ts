@@ -37,13 +37,9 @@ export const RowContainer = styled.div`
 
 export const InputContainer = styled.input`
   border-radius: 8px;
-  stroke: 1px;
   border-color: ${COLORS.font.black20};
   height: 48px;
   background-color: transparent;
-  :focus {
-    border-color: ${COLORS.font.black20};
-  }
 `;
 
 export const ButtonContainer = styled.div`

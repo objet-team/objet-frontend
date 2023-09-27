@@ -3,6 +3,7 @@ import * as styles from './LoginModal.style';
 import KakaoLoginButton from '@/components/common/KakaoLoginButton/KakaoLoginButton';
 import Text from '@/components/common/Text';
 import { COLORS } from '@/constants/styles';
+import { useRouter } from 'next/router';
 
 export interface LoginModalProps {
   loginClick: boolean;

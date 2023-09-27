@@ -10,6 +10,7 @@ const KakaoLoginRedirect = () => {
   const router = useRouter();
   const params = useSearchParams();
   const codeParam: string = params.get('code') as string;
+  console.log(codeParam);
   useEffect(() => {
     const fetchData = async () => {
       const response = await postAuthLogin(codeParam);
@@ -17,8 +18,8 @@ const KakaoLoginRedirect = () => {
       const token = response;
       if (token) {
         api.setToken(token);
+        router.push('/');
       }
-      router.push('/');
     };
     if (codeParam != null) {
       fetchData();
