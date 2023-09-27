@@ -12,6 +12,7 @@ const KakaoLoginRedirect = () => {
   const codeParam: string = params.get('code') as string;
   useEffect(() => {
     const fetchData = async () => {
+      console.log(codeParam);
       const response = await postAuthLogin(codeParam);
       console.log(response);
       const token = response;
