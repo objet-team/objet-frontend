@@ -6,10 +6,10 @@ import * as styles from './TextElementInput.style';
 
 const TextElementInput = ({
   setEditorMode,
-  onCreateTextElement,
+  addTextElement,
 }: {
   setEditorMode: React.Dispatch<React.SetStateAction<ElementType | null>>;
-  onCreateTextElement: (
+  addTextElement: (
     sizeType: TextStyleName,
     content: string,
     align: AlignType,
@@ -26,7 +26,7 @@ const TextElementInput = ({
 
   const onClickCreateButton = () => {
     if (value.length > 0) {
-      onCreateTextElement(sizeType, value, align);
+      addTextElement(sizeType, value, align);
     }
     setEditorMode(null);
     setSelectedStyle({ sizeType: 'title', align: 'left' });

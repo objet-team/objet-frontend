@@ -28,12 +28,11 @@ const ExhibtionPreviewPage = () => {
 export default ExhibtionPreviewPage;
 
 export const PreviewWrapper = styled.div`
-  height: 100vh;
   background-color: ${COLORS.main.black};
   color: ${COLORS.main.white};
   display: flex;
   flex-direction: column;
 
-  padding: 60px 80px;
+  padding: 80px;
   gap: 10rem;
 `;

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import {
   AlignType,
   ElementProps,
@@ -13,6 +13,7 @@ import TextElementInput from './TextElementInput';
 import { editorContentAtom } from '@/states/ExhibitionAtom';
 import Content from '@/components/exhibition/Content';
 import * as styles from './ContentEditor.style';
+import ImageElementInput from './ImageElementInput';
 
 interface ContentEditorProps {
   placeholder?: string;
@@ -20,8 +21,11 @@ interface ContentEditorProps {
 
 const ContentEditor = ({ placeholder }: ContentEditorProps) => {
   const router = useRouter();
+
   const [editorMode, setEditorMode] = useState<ElementType | null>(null);
   const [data, setData] = useRecoilState<ElementProps[]>(editorContentAtom);
+
+  const [imageUrl, setImageUrl] = useState('');
 
   // 텍스트 요소 추가 함수
   const addTextElement = (
@@ -86,9 +90,11 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
   // TODO connect server api
   const onSelectImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     // const file = e.target.files[0];
+    // addImageElement(300, 300, url, 'right');
+
     const url =
       'https://images.unsplash.com/photo-1695239510467-f1e93d649c2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80';
-    addImageElement(300, 300, url, 'right');
+    setImageUrl(url);
   };
 
   const editorMenu: Record<ElementType, any> = {
@@ -131,7 +137,15 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
         {editorMode === 'text' && (
           <TextElementInput
             setEditorMode={setEditorMode}
-            onCreateTextElement={onCreateTextElement}
+            addTextElement={addTextElement}
+          />
+        )}
+
+        {editorMode === 'image' && (
+          <ImageElementInput
+            imageUrl={imageUrl}
+            setEditorMode={setEditorMode}
+            addImageElement={addImageElement}
           />
         )}
       </styles.ContentWrapper>

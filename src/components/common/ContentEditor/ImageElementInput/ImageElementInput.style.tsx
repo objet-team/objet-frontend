@@ -1,13 +1,24 @@
 import styled from '@emotion/styled';
-import { COLORS, TEXT_STYLES, TextStyleName } from '@/constants/styles';
-import { AlignType } from '@/constants/types/exhibition';
+import { COLORS } from '@/constants/styles';
 
 export const Wrapper = styled.div`
   position: relative;
+
+  .left {
+    text-align: left;
+  }
+  .center {
+    text-align: center;
+  }
+  .right {
+    text-align: right;
+  }
 `;
 
+export const ImageWrapper = styled.div``;
+
 export const ModalWrapper = styled.div`
-  width: 270px;
+  width: 400px;
   height: 45px;
   background-color: ${COLORS.bg.white};
   border-radius: 8px;
@@ -18,25 +29,9 @@ export const ModalWrapper = styled.div`
   gap: 10px;
 
   position: absolute;
-  top: -45px;
+  top: -50px;
   left: 0px;
 `;
-
-export interface StylesType {
-  sizeType: TextStyleName;
-  align: AlignType;
-}
-
-export const TextInput = styled.input<StylesType>(({ sizeType, align }) => ({
-  width: '100%',
-  padding: '15px 20px',
-  border: 'none',
-
-  color: COLORS.font.black100,
-  fontSize: TEXT_STYLES[sizeType].fontSize,
-  fontWeight: TEXT_STYLES[sizeType].fontWeight,
-  textAlign: align,
-}));
 
 export const DropdownWrapper = styled.nav`
   width: 80px;
@@ -44,6 +39,17 @@ export const DropdownWrapper = styled.nav`
 
   color: ${COLORS.bg.black70};
   font-size: 13px;
+`;
+
+export const SizeInput = styled.input`
+  width: 60px;
+  height: 30px;
+  background-color: #f4f4f4;
+  color: ${COLORS.bg.black70};
+  margin-right: 5px;
+  border-radius: 3px;
+  padding-left: 5px;
+  border: none;
 `;
 
 export const SelectedMenu = styled.div`
@@ -82,6 +88,4 @@ export const DropdownMenu = styled.li`
   cursor: pointer;
 `;
 
-export const WriteButton = styled.button`
-  margin-left: 10px;
-`;
+export const WriteButton = styled.button``;

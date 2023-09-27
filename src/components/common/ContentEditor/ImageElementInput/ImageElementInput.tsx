@@ -1,72 +1,79 @@
-import { useState } from 'react';
-import { TEXT_STYLE_NAME, TextStyleName } from '@/constants/styles';
+import { ChangeEvent, useState } from 'react';
+import Image from 'next/image';
+import { COLORS, TEXT_STYLE_NAME, TextStyleName } from '@/constants/styles';
 import { AlignType, ElementType } from '@/constants/types/exhibition';
 
 import * as styles from './ImageElementInput.style';
+import Text from '../../Text';
 
 const ImageElementInput = ({
+  imageUrl,
   setEditorMode,
-  onCreateTextElement,
+  addImageElement,
 }: {
+  imageUrl: string;
   setEditorMode: React.Dispatch<React.SetStateAction<ElementType | null>>;
-  onCreateTextElement: (
-    sizeType: TextStyleName,
-    content: string,
-    align: AlignType,
+  addImageElement: (
+    width: number,
+    height: number,
+    url: string,
+    align?: AlignType,
   ) => void;
 }) => {
-  const [value, setValue] = useState('');
-  const [menu, setMenu] = useState<'text' | 'align' | null>(null);
-  const [selectedStyle, setSelectedStyle] = useState<styles.StylesType>({
-    sizeType: 'title',
+  const [menu, setMenu] = useState<'align' | null>(null);
+  const [selectedStyle, setSelectedStyle] = useState<{
+    width: number;
+    height: number;
+    align: AlignType;
+  }>({
+    width: 300,
+    height: 300,
     align: 'left',
   });
 
-  const { sizeType, align } = selectedStyle;
+  const { width, height, align } = selectedStyle;
 
   const onClickCreateButton = () => {
-    if (value.length > 0) {
-      onCreateTextElement(sizeType, value, align);
-    }
+    addImageElement(width, height, imageUrl, align);
     setEditorMode(null);
-    setSelectedStyle({ sizeType: 'title', align: 'left' });
   };
 
   return (
     <styles.Wrapper>
-      <styles.TextInput
-        value={value}
-        sizeType={sizeType}
-        align={align}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="텍스트를 입력해주세요"
-        className="text-input"
-      />
+      <styles.ImageWrapper className={align}>
+        <Image src={imageUrl} alt="editor-img" width={width} height={height} />
+      </styles.ImageWrapper>
 
       <styles.ModalWrapper>
-        <styles.DropdownWrapper>
-          <styles.SelectedMenu onClick={() => setMenu('text')}>
-            {sizeType}
-            {/* <ArrowButton color={COLORS.gray484} /> */}
-          </styles.SelectedMenu>
-          {menu === 'text' && (
-            <styles.MenuListWrap>
-              {(Object.keys(TEXT_STYLE_NAME) as TextStyleName[])
-                .filter((t) => t !== sizeType)
-                .map((t) => (
-                  <styles.DropdownMenu
-                    key={t}
-                    onClick={() => {
-                      setSelectedStyle({ ...selectedStyle, sizeType: t });
-                      setMenu(null);
-                    }}
-                  >
-                    {t}
-                  </styles.DropdownMenu>
-                ))}
-            </styles.MenuListWrap>
-          )}
-        </styles.DropdownWrapper>
+        <Text textStyleName="caption" color={COLORS.font.black60}>
+          너비
+        </Text>
+        <styles.SizeInput
+          value={width}
+          onChange={(e) =>
+            setSelectedStyle({
+              ...selectedStyle,
+              width: Number(e.target.value),
+            })
+          }
+          placeholder="width"
+        />
+        <Text textStyleName="caption" color={COLORS.font.black60}>
+          높이
+        </Text>
+        <styles.SizeInput
+          value={height}
+          onChange={(e) =>
+            setSelectedStyle({
+              ...selectedStyle,
+              height: Number(e.target.value),
+            })
+          }
+          placeholder="height"
+        />
+        <Text textStyleName="caption" color={COLORS.font.black60}>
+          정렬
+        </Text>
         <styles.DropdownWrapper>
           <styles.SelectedMenu onClick={() => setMenu('align')}>
             {align}
@@ -91,7 +98,7 @@ const ImageElementInput = ({
           )}
         </styles.DropdownWrapper>
         <styles.WriteButton type="button" onClick={onClickCreateButton}>
-          작성 완료
+          추가
         </styles.WriteButton>
       </styles.ModalWrapper>
     </styles.Wrapper>
