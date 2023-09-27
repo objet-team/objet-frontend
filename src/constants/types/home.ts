@@ -16,3 +16,8 @@ export interface GetProductPopularDto {
 export interface GetProductNewDto {
   productInfos: GetProductData[];
 }
+
+export enum UserTypes {
+  DEFAULT,
+  ARTIST,
+}

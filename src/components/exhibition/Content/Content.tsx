@@ -1,32 +1,60 @@
-import ArtistInfo from '@/components/common/ArtistInfo';
+import Image from 'next/image';
+import React from 'react';
 import * as styles from './Content.style';
-// import ExhibitionItem, { ExhibitionItemProps } from '../ExhibitionItem';
+import { ElementProps } from '@/constants/types/exhibition';
+import Text from '@/components/common/Text';
+import { COLORS } from '@/constants/styles';
 
 export interface ContentProps {
-  artistName: string;
-  part: string;
-  artistInfo: string;
-  exhibitionItem: any[];
+  isEditing?: boolean;
+  data: ElementProps[];
 }
 
-const Content = ({
-  part,
-  artistName,
-  artistInfo,
-  exhibitionItem,
-}: ContentProps) => (
-  <styles.ExhibitionBackground>
-    {/* {exhibitionItem.map((item) => (
-      <div key={item.id}>
-        <ExhibitionItem name="뿌슝" detail="뿌슝슝" imageList={[]} />
-      </div>
-    ))} */}
-    <ArtistInfo
-      img="https://images.unsplash.com/photo-1694900565922-d279cef76fd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80"
-      part={part}
-      name={artistName}
-      info={artistInfo}
-    />
-  </styles.ExhibitionBackground>
-);
+const Content = ({ isEditing = false, data }: ContentProps) => {
+  const renderElement = (element: ElementProps) => {
+    switch (element.type) {
+      case 'text': {
+        const { content, sizeType, align } = element;
+        return (
+          <styles.TextElement>
+            <Text
+              color={isEditing ? COLORS.main.black : COLORS.main.white}
+              textStyleName={sizeType}
+              className={`${align}-element`}
+            >
+              {content}
+            </Text>
+          </styles.TextElement>
+        );
+      }
+      case 'image': {
+        const { id, url, width, height } = element;
+        return (
+          <Image
+            src={url}
+            alt={`exhibition-img-${id}`}
+            width={width}
+            height={height}
+          />
+        );
+      }
+      case 'space': {
+        return <styles.SpaceElement />;
+      }
+      default: {
+        return <>NOT FOUND</>;
+      }
+    }
+  };
+
+  return (
+    <styles.Wrapper>
+      {data.map((element) => (
+        <React.Fragment key={element.id}>
+          {renderElement(element)}
+        </React.Fragment>
+      ))}
+    </styles.Wrapper>
+  );
+};
 export default Content;

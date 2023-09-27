@@ -7,24 +7,25 @@ import * as styles from './Intro.style';
 
 export interface IntroProps {
   title: string;
-  detail: string;
-  artistInfo: ArtistInfoProps;
+  description: string;
+  artistInfo?: ArtistInfoProps;
 }
 
-const Intro = () => {
+const Intro = ({ title, description, artistInfo }: IntroProps) => {
   const router = useRouter();
-  const onClick = () => {
-    router.push('/exhibition');
-  };
+  const nextPath = `/exhibition/${
+    router.asPath.includes('preview') ? 'preview' : 'next'
+  }/content`;
+
   return (
     <styles.IntroBackground>
       <Text textStyleName="title" color={COLORS.main.white}>
-        캐시로지
+        {title}
       </Text>
       <Text textStyleName="subtitle" color={COLORS.bg.opa60White}>
-        작품설명쓰
+        {description}
       </Text>
-      <div onClick={onClick}>
+      <div onClick={() => router.push(nextPath)}>
         <DoorIcon />
       </div>
       <ArtistInfo

@@ -1,4 +1,7 @@
 import Intro from '@/components/exhibition/Intro/Intro';
 
-const ExhibitionIntroPage = () => <Intro />;
+// TODO connect data
+const ExhibitionIntroPage = () => (
+  <Intro title="title" description="description" />
+);
 export default ExhibitionIntroPage;
