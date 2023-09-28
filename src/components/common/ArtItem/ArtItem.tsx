@@ -7,6 +7,7 @@ import * as styles from './ArtItem.style';
 import { useRouter } from 'next/router';
 
 export interface ArtItemProps {
+  id: number;
   image: string;
   artistName: string;
   artistProfileImg?: string;
@@ -16,6 +17,7 @@ export interface ArtItemProps {
 }
 
 const ArtItem = ({
+  id,
   artistId,
   image,
   artistName,
@@ -24,6 +26,7 @@ const ArtItem = ({
   className,
 }: ArtItemProps) => {
   const router = useRouter();
+  const onItemClick = () => router.push(`/exhibition/${id}`);
   const onProfileClick = () => {
     router.push(
       {

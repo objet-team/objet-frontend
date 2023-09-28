@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0px 80px;
+  z-index: 100;
 
   position: fixed;
   top: 0px;

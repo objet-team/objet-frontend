@@ -23,6 +23,7 @@ const ArtSection = () => {
       <styles.Section>
         {data?.productInfos.map((art) => (
           <ArtItem
+            id={art.productId}
             artistId={art.artistId}
             key={art.productId}
             image={art.thumbNailPath}

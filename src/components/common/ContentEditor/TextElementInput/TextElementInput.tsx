@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TEXT_STYLE_NAME, TextStyleName } from '@/constants/styles';
-import { AlignType, ElementType } from '@/constants/types/exhibition';
+import { AlignType, ElementType } from '@/constants/types/editor';
 
 import * as styles from './TextElementInput.style';
 

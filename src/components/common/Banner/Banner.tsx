@@ -25,12 +25,7 @@ const Banner = ({
 }: BannerProps) => (
   <styles.BannerContainer>
     {isArtist ? (
-      <ArtistInfo
-        img={img}
-        name={name}
-        part={part as string[]}
-        info={info as string}
-      />
+      <ArtistInfo img={img} name={name} part={part} info={info} />
     ) : (
       <UserInfo
         img={img}

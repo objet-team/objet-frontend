@@ -11,13 +11,14 @@ import { useEffect } from 'react';
 const DefaultUserMypage = () => {
   const token = api.getToken();
   const { data, isLoading } = useGetAuthUserInfo(token);
-  console.log(data);
+
   const [profile, setProfile] = useState<string>(
     '/mypage/DefaultProfileImg.png',
   );
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [followingArtistNum, setFollowingArtistNum] = useState<number>(0);
+
   useEffect(() => {
     if (data) {
       const { profile, email, name, followingArtistNum } = data;

@@ -12,7 +12,7 @@ interface CommonElementProps {
 export interface TextElementProps extends CommonElementProps {
   type: 'text';
   sizeType: TextStyleName;
-  content: string;
+  description: string;
 }
 
 // 이미지 요소

@@ -2,11 +2,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
-import {
-  AlignType,
-  ElementProps,
-  ElementType,
-} from '@/constants/types/exhibition';
+import { AlignType, ElementProps, ElementType } from '@/constants/types/editor';
 import { TextStyleName, COLORS } from '@/constants/styles';
 import Text from '@/components/common/Text';
 import TextElementInput from './TextElementInput';
@@ -30,7 +26,7 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
   // 텍스트 요소 추가 함수
   const addTextElement = (
     sizeType: TextStyleName,
-    content: string,
+    description: string,
     align?: AlignType,
   ) => {
     setData([
@@ -39,7 +35,7 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
         type: 'text',
         id: data.length + 1,
         sizeType,
-        content,
+        description,
         align: align || 'left',
       },
     ]);
@@ -79,10 +75,10 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
   // 텍스트 작성 완료 시 실행되는 함수
   const onCreateTextElement = (
     sizeType: TextStyleName,
-    content: string,
+    description: string,
     align: AlignType,
   ) => {
-    addTextElement(sizeType, content, align);
+    addTextElement(sizeType, description, align);
     setEditorMode(null);
   };
 
@@ -176,7 +172,7 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
         <styles.ButtonsWrapper>
           <styles.Button
             className="next-btn"
-            onClick={() => router.push('/exhibition/next/intro')}
+            onClick={() => router.push('/exhibition/preview/intro/type=upload')}
           >
             다음
           </styles.Button>
