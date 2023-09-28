@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { ElementProps } from '@/constants/types/exhibition';
+import { ElementProps } from '@/constants/types/editor';
 import { CategoryType } from '@/constants/types/art';
 
 interface UploadFormValue {

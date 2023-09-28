@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { COLORS, TEXT_STYLES, TextStyleName } from '@/constants/styles';
-import { AlignType } from '@/constants/types/exhibition';
+import { AlignType } from '@/constants/types/editor';
 
 export const Wrapper = styled.div`
   position: relative;
