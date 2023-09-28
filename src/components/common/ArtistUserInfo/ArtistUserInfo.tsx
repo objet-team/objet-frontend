@@ -9,7 +9,7 @@ import ArtistProfileEditModal from '@/components/mypage/ArtistUserMyPage/Profile
 
 export interface ArtistUserInfoProps {
   img: string;
-  part: string;
+  part: string[];
   name: string;
   info: string;
   exhibitionCount: number;
@@ -49,9 +49,11 @@ const ArtistUserInfo = ({
             alt="프로필이미지"
             style={{ display: 'block', borderRadius: '50%' }}
           />
-          <Text color={COLORS.main.white} textStyleName="body2B">
-            {part}
-          </Text>
+          {part.map((item) => (
+            <Text color={COLORS.main.white} textStyleName="body2R">
+              {item}
+            </Text>
+          ))}
 
           <Text color={COLORS.main.white} textStyleName="body2R">
             {info}

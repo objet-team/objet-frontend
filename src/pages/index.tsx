@@ -6,10 +6,11 @@ import api from '@/services/TokenService';
 import { useState } from 'react';
 import { UserTypes } from '@/constants/types/home';
 import LoginAfterNavigationBar from '@/components/common/NavigationBar/LoginAfterNavigationBar';
+import ArtistNavigationBar from '@/components/common/NavigationBar/ArtistNavigationBar';
 
 const Home = () => {
-  const [user, setUser] = useState(UserTypes.DEFAULT);
   const token = api.getToken();
+  const role = api.getRole();
 
   return (
     <div>
@@ -20,7 +21,13 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {token ? <LoginAfterNavigationBar /> : <NavigationBar />}
+      {token == null ? (
+        <NavigationBar />
+      ) : role === 'USER' ? (
+        <LoginAfterNavigationBar />
+      ) : (
+        <ArtistNavigationBar />
+      )}
       <MainBanner />
       <ArtContent />
     </div>

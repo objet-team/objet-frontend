@@ -10,7 +10,7 @@ export interface BannerProps {
   name: string;
   email?: string;
   followCount?: number;
-  part?: string;
+  part?: string[];
   info?: string;
 }
 
@@ -28,7 +28,7 @@ const Banner = ({
       <ArtistInfo
         img={img}
         name={name}
-        part={part as string}
+        part={part as string[]}
         info={info as string}
       />
     ) : (

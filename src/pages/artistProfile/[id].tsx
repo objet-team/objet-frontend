@@ -1,14 +1,18 @@
+import ArtistProfile from '@/components/ArtistProfile';
 import NavigationBar from '@/components/common/NavigationBar';
-import Shop from '@/components/shop';
-import api from '@/services/TokenService';
 import ArtistNavigationBar from '@/components/common/NavigationBar/ArtistNavigationBar';
 import LoginAfterNavigationBar from '@/components/common/NavigationBar/LoginAfterNavigationBar';
+import { useGetArtistInfoPublic } from '@/hooks/useGetArtistInfoPublic';
+import api from '@/services/TokenService';
+import { useRouter } from 'next/router';
 
-const ShopPage = () => {
+const ArtistProfilePage = () => {
   const token = api.getToken();
   const role = api.getRole();
+  console.log(role);
+
   return (
-    <div>
+    <>
       {token == null ? (
         <NavigationBar />
       ) : role === 'USER' ? (
@@ -16,8 +20,8 @@ const ShopPage = () => {
       ) : (
         <ArtistNavigationBar />
       )}
-      <Shop />
-    </div>
+      <ArtistProfile />
+    </>
   );
 };
-export default ShopPage;
+export default ArtistProfilePage;

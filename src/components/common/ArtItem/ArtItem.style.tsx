@@ -34,6 +34,7 @@ export const ProfileImage = styled.div`
   border-radius: 14px;
   background-color: ${COLORS.bg.black05};
   position: relative;
+  cursor: pointer;
 
   .artist-img {
     width: 100%;
