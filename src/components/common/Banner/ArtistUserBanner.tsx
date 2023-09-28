@@ -3,7 +3,7 @@ import * as styles from './Banner.style';
 
 export interface ArtistBannerProps {
   img: string;
-  part: string;
+  part: string[];
   name: string;
   info: string;
   exhibitionCount: number;
