@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import getProductDetatil from '@/apis/getProductDetail';
 import ArtistInfo from '@/components/common/ArtistInfo';
 import Content from '@/components/exhibition/Content';

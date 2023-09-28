@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { useRecoilValue } from 'recoil';
 import { editorContentAtom, uploadFormAtom } from '@/states/ExhibitionAtom';
 import PreviewBar from '@/components/exhibition/PreviewBar';
