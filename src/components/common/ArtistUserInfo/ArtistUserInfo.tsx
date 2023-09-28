@@ -49,11 +49,13 @@ const ArtistUserInfo = ({
             alt="프로필이미지"
             style={{ display: 'block', borderRadius: '50%' }}
           />
-          {part.map((item) => (
-            <Text color={COLORS.main.white} textStyleName="body2R">
-              {item}
-            </Text>
-          ))}
+          <styles.RowContainer>
+            {part.map((item) => (
+              <Text color={COLORS.main.white} textStyleName="body2R">
+                {item}
+              </Text>
+            ))}
+          </styles.RowContainer>
 
           <Text color={COLORS.main.white} textStyleName="body2R">
             {info}

@@ -36,6 +36,9 @@ const ArtistNavigationBar = () => {
           </Link>
         </styles.NavMenu>
         <styles.ProfileMenu>
+          <Link href="/mypage/artist">
+            <styles.ProfileImage />
+          </Link>
           <styles.ProfileClickWrapper onClick={onGoodsClick}>
             <Text color={COLORS.font.black100} textStyleName="body1">
               작품업로드
