@@ -11,3 +11,14 @@ export interface GetArtistMyPageDto {
   categoryList: string[];
   profile: string;
 }
+
+export interface PostArtistInfoReq {
+  comment: string;
+  categoryList: string[];
+}
+export interface PostArtistInfoRes {
+  comment: string;
+  name: string;
+  categoryList: string[];
+  profile: string;
+}
