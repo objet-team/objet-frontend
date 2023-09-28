@@ -2,7 +2,7 @@
 
 const nextConfig = {
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['images.unsplash.com', 'objet-bucket.s3.us-east-2.amazonaws.com'],
   },
   // async rewrites() {
   //   return [
