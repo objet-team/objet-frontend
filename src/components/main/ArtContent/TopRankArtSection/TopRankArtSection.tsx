@@ -14,6 +14,7 @@ const TopRankArtSection = () => {
             ?.slice(0, 3)
             .map((art) => (
               <ArtItem
+                artistId={art.artistId}
                 key={art.productId}
                 image={art.thumbNailPath}
                 artistName={art.artistName}
@@ -26,6 +27,7 @@ const TopRankArtSection = () => {
             .slice(3, 7)
             .map((art) => (
               <ArtItem
+                artistId={art.artistId}
                 key={art.productId}
                 image={art.thumbNailPath}
                 artistName={art.artistName}
@@ -38,6 +40,7 @@ const TopRankArtSection = () => {
             .slice(7, 11)
             .map((art) => (
               <ArtItem
+                artistId={art.artistId}
                 key={art.productId}
                 image={art.thumbNailPath}
                 artistName={art.artistName}

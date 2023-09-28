@@ -2,10 +2,19 @@ import { DesignTypeData } from './DesignTypeData';
 import DesignTypeItem from './DesignTypeItem';
 import * as styles from './DestignType.style';
 
-const DesignType = () => (
+interface DesignTypeProps {
+  categoryList: string[];
+  setCategoryList: React.Dispatch<React.SetStateAction<string[]>>;
+}
+const DesignType = ({ categoryList, setCategoryList }: DesignTypeProps) => (
   <styles.DesignTypeContainer>
-    {DesignTypeData.map((item) => (
-      <DesignTypeItem key={DesignTypeData.indexOf(item)} label={item} />
+    {Object.entries(DesignTypeData).map(([key, value]) => (
+      <DesignTypeItem
+        categoryList={categoryList}
+        setCategoryList={setCategoryList}
+        key={key}
+        label={value}
+      />
     ))}
   </styles.DesignTypeContainer>
 );

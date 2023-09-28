@@ -15,10 +15,12 @@ const KakaoLoginRedirect = () => {
       const fetchData = async () => {
         console.log('리다이렉트');
         const response = await postAuthLogin(codeParam);
-        console.log(response);
-        const token = response;
-        if (token) {
-          api.setToken(token);
+        const { accessToken, role, userId, userName } = response;
+        if (accessToken) {
+          api.setToken(accessToken);
+          api.setId(userId);
+          api.setRole(role);
+          api.setName(userName);
           router.push('/');
         }
       };

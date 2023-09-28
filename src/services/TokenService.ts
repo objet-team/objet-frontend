@@ -7,8 +7,16 @@ class TokenService {
     this.cookie.set('token', token, { path: '/' });
   }
 
-  setId(id: string) {
+  setId(id: number) {
     this.cookie.set('id', id, { path: '/' });
+  }
+
+  setRole(role: string) {
+    this.cookie.set('role', role, { path: '/' });
+  }
+
+  setName(name: string) {
+    this.cookie.set('name', name, { path: '/' });
   }
 
   getToken() {
@@ -19,6 +27,13 @@ class TokenService {
     return this.cookie.get('id');
   }
 
+  getRole() {
+    return this.cookie.get('role');
+  }
+
+  getName() {
+    return this.cookie.get('name');
+  }
   logout() {
     this.cookie.remove('token');
     this.cookie.remove('id');

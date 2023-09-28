@@ -40,7 +40,9 @@ const LoginAfterNavigationBar = () => {
           </Link>
         </styles.NavMenu>
         <styles.ProfileMenu>
-          <styles.ProfileImage />
+          <Link href="/mypage/default">
+            <styles.ProfileImage />
+          </Link>
           <CartIcon />
           {registerClick && portalElement ? (
             <ArtistRegisterModal

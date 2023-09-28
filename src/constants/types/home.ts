@@ -4,6 +4,7 @@ export interface GetProductData {
   title: string;
   category: string;
   like: number;
+  artistId: number;
   artistName: string;
   artistPicPath: string;
   thumbNailPath: string;

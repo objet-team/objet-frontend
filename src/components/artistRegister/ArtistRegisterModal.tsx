@@ -4,6 +4,11 @@ import Text from '../common/Text';
 import * as styles from './ArtistRegisterModal.style';
 import PurpleFillBtn from '../common/Button/PurpleFillBtn';
 import DesignType from './DesginType/DesignType';
+import api from '@/services/TokenService';
+import useInput from '@/hooks/useInput';
+import { PostArtistInfoReq } from '@/constants/types/mypage';
+import { useState } from 'react';
+import postArtistInfo from '@/apis/postArtistInfo';
 
 export interface ArtistRegisterModalProps {
   registerClick: boolean;
@@ -14,13 +19,32 @@ const ArtistRegisterModal = ({
   registerClick,
   setRegisterClick,
 }: ArtistRegisterModalProps) => {
-  const onClick = () => {
+  const token = api.getToken();
+  const [name, onNameChange] = useInput('');
+  const [categoryList, setCategoryList] = useState<string[]>([]);
+  const [info, onInfoChange] = useInput('');
+  console.log(categoryList);
+  const onClick = async () => {
+    const data: PostArtistInfoReq = {
+      categoryList: categoryList,
+      comment: info,
+    };
+    const res = await postArtistInfo(token, data);
+    console.log(res);
+    if (res.name == api.getName()) {
+      api.setRole('ARTIST');
+      window.alert('작가등록 성공');
+      setRegisterClick(false);
+      location.reload();
+    }
+  };
+  const onCloseClick = () => {
     setRegisterClick(false);
   };
   return (
     <styles.ModalBackground>
       <styles.ModalBox>
-        <styles.ClosedButton onClick={onClick}>
+        <styles.ClosedButton onClick={onCloseClick}>
           <CloseButton />
         </styles.ClosedButton>
         <Text color={COLORS.font.black100} textStyleName="subtitle">
@@ -35,7 +59,7 @@ const ArtistRegisterModal = ({
               *
             </Text>
           </styles.RowContainer>
-          <styles.InputContainer />
+          <styles.InputContainer value={name} onChange={onNameChange} />
         </styles.ColContainer>
         <styles.ColContainer>
           <styles.RowContainer>
@@ -49,7 +73,10 @@ const ArtistRegisterModal = ({
               (중복선택 가능)
             </Text>
           </styles.RowContainer>
-          <DesignType />
+          <DesignType
+            categoryList={categoryList}
+            setCategoryList={setCategoryList}
+          />
         </styles.ColContainer>
         <styles.ColContainer>
           <styles.RowContainer>
@@ -57,7 +84,7 @@ const ArtistRegisterModal = ({
               본인에 대한 한줄 소개
             </Text>
           </styles.RowContainer>
-          <styles.InputContainer />
+          <styles.InputContainer value={info} onChange={onInfoChange} />
         </styles.ColContainer>
         <styles.CheckboxContainer>
           <styles.CheckBox type="checkbox" />
