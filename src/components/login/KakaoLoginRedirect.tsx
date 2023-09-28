@@ -13,8 +13,8 @@ const KakaoLoginRedirect = () => {
   useEffect(() => {
     if (codeParam != null) {
       const fetchData = async () => {
-        console.log('리다이렉트');
         const response = await postAuthLogin(codeParam);
+        console.log(response);
         const { accessToken, role, userId, userName } = response;
         if (accessToken) {
           api.setToken(accessToken);
@@ -27,7 +27,7 @@ const KakaoLoginRedirect = () => {
       fetchData();
     }
   }, [codeParam]);
-  return <div />;
+  return <div>로그인중!</div>;
 };
 
 export default KakaoLoginRedirect;
