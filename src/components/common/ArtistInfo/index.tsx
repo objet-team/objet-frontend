@@ -32,7 +32,9 @@ const ArtistInfo = ({ img, part, name, info }: ArtistInfoProps) => {
       <styles.ColContainer gap="20px">
         <styles.ColContainer gap="8px">
           <Image
-            src={img}
+            src={
+              'https://images.unsplash.com/photo-1695239510467-f1e93d649c2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80'
+            }
             width={96}
             height={96}
             alt="프로필이미지"
