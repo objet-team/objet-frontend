@@ -9,6 +9,7 @@ export const postAuthLogin = async (codeParam: string): Promise<GetUserDto> => {
     console.log('로그인진입');
     const data = await client.post(url, {
       authorizationCode: codeParam,
+      isLocal: false,
     });
     console.log(data);
     return await data.data;
