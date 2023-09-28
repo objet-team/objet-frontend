@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { COLORS } from '@/constants/styles';
 
 export const FormContainer = styled.div`
-  background-color: ${COLORS.bg.white};
   padding: 40px 80px;
 `;
 

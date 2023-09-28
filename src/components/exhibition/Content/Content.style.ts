@@ -2,12 +2,9 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-`;
-
-export const TextElement = styled.div`
-  position: relative;
 
   .left-element {
     text-align: left;
@@ -19,6 +16,10 @@ export const TextElement = styled.div`
     text-align: right;
   }
 `;
+
+export const TextElement = styled.div``;
+
+export const ImageElement = styled.div``;
 
 export const SpaceElement = styled.div`
   width: 100%;

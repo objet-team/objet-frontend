@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   width: 100%;
-  height: 800px;
+  min-height: 800px;
   border: 1px solid ${COLORS.font.black20};
   padding: 21px 20px;
   display: flex;
