@@ -57,7 +57,7 @@ const ExhibitionPage = ({ data }: { data: ProductDetailData }) => {
       )}
       <ArtistInfo
         img={artistPicPath}
-        part={category}
+        part={[category]}
         info={artistInfo}
         name={artistName}
       />
