@@ -13,6 +13,9 @@ export interface GetProductData {
 export interface GetProductPopularDto {
   productInfos: GetProductData[];
 }
+export interface GetProductWeeklyDto {
+  productInfos: GetProductData[];
+}
 
 export interface GetProductNewDto {
   productInfos: GetProductData[];

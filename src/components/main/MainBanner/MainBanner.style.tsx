@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 import { COLORS } from '@/constants/styles';
 
+export interface PostImgaeProps {
+  backgroundImage: string;
+}
+
 export const Wrapper = styled.div`
   width: 100%;
   height: 335px;
@@ -36,10 +40,11 @@ export const PostWrap = styled.div`
   }
 `;
 
-export const Post = styled.div`
+export const Post = styled.div<PostImgaeProps>`
   width: 285px;
   height: 176px;
   background-color: ${COLORS.bg.white};
+  /* background-image: ${(props) => props.backgroundImage}; */
   position: relative;
 
   svg {
