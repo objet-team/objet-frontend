@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const runtime = 'experimental-edge';
 
 import getProductDetatil from '@/apis/getProductDetail';
 import ArtistInfo from '@/components/common/ArtistInfo';

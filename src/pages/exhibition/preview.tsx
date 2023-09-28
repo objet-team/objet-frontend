@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const runtime = 'experimental-edge';
 
 import { useRecoilValue } from 'recoil';
 import { editorContentAtom, uploadFormAtom } from '@/states/ExhibitionAtom';
