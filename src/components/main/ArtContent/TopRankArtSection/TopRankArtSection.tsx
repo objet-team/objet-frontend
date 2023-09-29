@@ -5,7 +5,7 @@ import { useGetProductPopular } from '@/hooks/useGetProductPopular';
 
 const TopRankArtSection = () => {
   const { data, isLoading } = useGetProductPopular();
-  console.log(data?.productInfos);
+
   return (
     <styles.Wrapper>
       <styles.Section>

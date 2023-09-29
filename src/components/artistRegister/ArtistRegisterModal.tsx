@@ -23,14 +23,14 @@ const ArtistRegisterModal = ({
   const [name, onNameChange] = useInput('');
   const [categoryList, setCategoryList] = useState<string[]>([]);
   const [info, onInfoChange] = useInput('');
-  console.log(categoryList);
+
   const onClick = async () => {
     const data: PostArtistInfoReq = {
       categoryList: categoryList,
       comment: info,
     };
     const res = await postArtistInfo(token, data);
-    console.log(res);
+
     if (res.name == api.getName()) {
       api.setRole('ARTIST');
       window.alert('작가등록 성공');

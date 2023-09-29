@@ -36,8 +36,6 @@ const ExhibitionPage = ({ data }: { data: ProductDetailData }) => {
     contents,
   } = data;
 
-  console.log(data);
-
   return (
     <Wrapper>
       {step === 'intro' && (

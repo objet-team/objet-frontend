@@ -9,17 +9,13 @@ export const postArtistInfo = async (
 ): Promise<PostArtistInfoRes> => {
   try {
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/artist/info`;
-
-    console.log('로그인진입');
     const data = await client.post(url, requestData, {
       headers: {
         Authorization: token,
       },
     });
-    console.log(data);
     return await data.data;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };

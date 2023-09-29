@@ -11,7 +11,6 @@ import ArtistNavigationBar from '@/components/common/NavigationBar/ArtistNavigat
 const Home = () => {
   const token = api.getToken();
   const role = api.getRole();
-  console.log(role);
 
   return (
     <div>
