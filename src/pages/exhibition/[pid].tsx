@@ -75,10 +75,10 @@ const Wrapper = styled.div`
   min-height: 100vh;
   background-color: ${COLORS.main.black};
   color: ${COLORS.main.white};
-  padding: 16px 80px 80px;
+  padding: 80px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 44px;
+  gap: 80px;
 `;
