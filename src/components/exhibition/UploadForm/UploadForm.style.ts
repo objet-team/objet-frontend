@@ -10,6 +10,14 @@ export const Field = styled.div`
   flex-direction: column;
   gap: 8px;
   margin-bottom: 32px;
+
+  .title {
+    height: 64px;
+  }
+
+  .introduction {
+    height: 240px;
+  }
 `;
 
 export const TextInput = styled.textarea`
@@ -21,14 +29,6 @@ export const TextInput = styled.textarea`
   color: ${COLORS.font.black60};
   font-size: 16px;
   font-weight: 600;
-
-  .title {
-    height: 64px;
-  }
-
-  .introduction {
-    height: 240px;
-  }
 `;
 
 export const UploadWrapper = styled.div`

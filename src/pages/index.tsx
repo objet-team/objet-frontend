@@ -3,8 +3,6 @@ import NavigationBar from '@/components/common/NavigationBar';
 import MainBanner from '@/components/main/MainBanner';
 import ArtContent from '@/components/main/ArtContent/ArtContent';
 import api from '@/services/TokenService';
-import { useState } from 'react';
-import { UserTypes } from '@/constants/types/home';
 import LoginAfterNavigationBar from '@/components/common/NavigationBar/LoginAfterNavigationBar';
 import ArtistNavigationBar from '@/components/common/NavigationBar/ArtistNavigationBar';
 

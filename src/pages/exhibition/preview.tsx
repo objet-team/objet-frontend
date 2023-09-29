@@ -21,6 +21,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx: GSSPCTX) => {
   return { props: { type: ctx.query.type ? 'uploading' : 'preview' } };
 };
 
+/**
+ * `/exhibition/preview`: 업로드 중 '미리보기' 버튼을 눌렀을 때
+ * `/exhibition/preview?type=uploading`: 업로드 중 '다음' 버튼을 눌렀을 때
+ */
 const ExhibitionPreviewPage = ({ type }: PreviewPageProps) => {
   const { title, description } = useRecoilValue(uploadFormAtom);
   const data = useRecoilValue(editorContentAtom);
