@@ -1,3 +1,5 @@
+import { ElementProps } from './editor';
+
 export interface GetProductData {
   rank: number;
   productId: number;
@@ -19,6 +21,17 @@ export interface GetProductWeeklyDto {
 
 export interface GetProductNewDto {
   productInfos: GetProductData[];
+}
+export interface ProductDetailData {
+  productId: number;
+  title: string;
+  category: string;
+  detail: string;
+  like: number;
+  artistName: string;
+  artistInfo: string;
+  artistPicPath: string;
+  contents: ElementProps[];
 }
 
 export enum UserTypes {

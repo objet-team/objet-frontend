@@ -13,7 +13,7 @@ const ArtistProfile = () => {
   const token = api.getToken();
   const router = useRouter();
   const id = router.query.id as string;
-  console.log('아이디', id);
+
   const { data, isLoading } = useGetArtistInfoPublic(token, parseInt(id));
   const [profile, setProfile] = useState<string>(
     '/mypage/DefaultProfileImg.png',
@@ -21,6 +21,7 @@ const ArtistProfile = () => {
   const [categoryList, setCategoryList] = useState<string[]>(['']);
   const [name, setName] = useState<string>('');
   const [comment, setComment] = useState<string>('');
+
   useEffect(() => {
     if (data) {
       const { profile, categoryList, name, comment } = data;

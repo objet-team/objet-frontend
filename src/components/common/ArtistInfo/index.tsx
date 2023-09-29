@@ -9,9 +9,9 @@ import CareerModal from '@/components/career/CareerModal';
 
 export interface ArtistInfoProps {
   img: string;
-  part: string[];
+  part?: string[];
   name: string;
-  info: string;
+  info?: string;
 }
 
 const ArtistInfo = ({ img, part, name, info }: ArtistInfoProps) => {
@@ -32,17 +32,22 @@ const ArtistInfo = ({ img, part, name, info }: ArtistInfoProps) => {
       <styles.ColContainer gap="20px">
         <styles.ColContainer gap="8px">
           <Image
-            src={img}
+            src={
+              'https://images.unsplash.com/photo-1695239510467-f1e93d649c2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80'
+            }
             width={96}
             height={96}
             alt="프로필이미지"
             style={{ display: 'block', borderRadius: '50%' }}
           />
-          {part.map((item) => (
+          {part?.map((item) => (
             <Text color={COLORS.main.white} textStyleName="body2B">
               {item}
             </Text>
           ))}
+          <Text color={COLORS.main.white} textStyleName="body2B">
+            {part}
+          </Text>
           <Text color={COLORS.main.white} textStyleName="subtitle">
             {name}
           </Text>

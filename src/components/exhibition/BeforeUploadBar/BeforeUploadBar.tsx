@@ -5,6 +5,7 @@ import * as styles from './BeforeUploadBar.style';
 // TODO
 const BeforeUploadBar = () => {
   const uploadExhibition = () => {};
+
   return (
     <styles.Wrapper>
       <Text color={COLORS.main.white} textStyleName="subtitle">

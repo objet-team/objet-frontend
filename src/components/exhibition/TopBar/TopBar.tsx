@@ -15,6 +15,7 @@ export interface TopbarProps {
   artistName: string;
 }
 
+// TODO Image
 const TopBar = ({ imgUrl, title, artistName }: TopbarProps) => {
   const [careerClick, setCareerClick] = useState(false);
   const [portalElement, setPortalElement] = useState<Element | null>(null);
@@ -36,7 +37,7 @@ const TopBar = ({ imgUrl, title, artistName }: TopbarProps) => {
         <styles.LeftContainer>
           <styles.RowContainer>
             <Image
-              src={imgUrl}
+              src="https://images.unsplash.com/photo-1695239510467-f1e93d649c2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80"
               width={96}
               height={96}
               alt="프로필이미지"

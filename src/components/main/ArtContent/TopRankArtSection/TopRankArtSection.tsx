@@ -1,8 +1,8 @@
 import React from 'react';
-import { ArtList } from '@/components/main/mainDummyData';
 import * as styles from './TopRankArtSection.style';
 import ArtItem from '@/components/common/ArtItem';
 import { useGetProductPopular } from '@/hooks/useGetProductPopular';
+
 const TopRankArtSection = () => {
   const { data, isLoading } = useGetProductPopular();
   console.log(data?.productInfos);
@@ -16,6 +16,7 @@ const TopRankArtSection = () => {
               <ArtItem
                 artistId={art.artistId}
                 key={art.productId}
+                id={art.productId}
                 image={art.thumbNailPath}
                 artistName={art.artistName}
                 likeCount={art.like}
@@ -28,6 +29,7 @@ const TopRankArtSection = () => {
             .map((art) => (
               <ArtItem
                 artistId={art.artistId}
+                id={art.productId}
                 key={art.productId}
                 image={art.thumbNailPath}
                 artistName={art.artistName}
@@ -41,6 +43,7 @@ const TopRankArtSection = () => {
             .map((art) => (
               <ArtItem
                 artistId={art.artistId}
+                id={art.productId}
                 key={art.productId}
                 image={art.thumbNailPath}
                 artistName={art.artistName}

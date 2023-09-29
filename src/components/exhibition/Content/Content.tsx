@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import * as styles from './Content.style';
-import { ElementProps } from '@/constants/types/exhibition';
+import { ElementProps } from '@/constants/types/editor';
 import Text from '@/components/common/Text';
 import { COLORS } from '@/constants/styles';
 
@@ -14,7 +14,7 @@ const Content = ({ isEditing = false, data }: ContentProps) => {
   const renderElement = (element: ElementProps) => {
     switch (element.type) {
       case 'text': {
-        const { content, sizeType, align } = element;
+        const { description, sizeType, align } = element;
         return (
           <styles.TextElement>
             <Text
@@ -22,7 +22,7 @@ const Content = ({ isEditing = false, data }: ContentProps) => {
               textStyleName={sizeType}
               className={`${align}-element`}
             >
-              {content}
+              {description}
             </Text>
           </styles.TextElement>
         );

@@ -7,7 +7,7 @@ export const TopBarContainer = styled.div`
   position: relative;
 
   width: 100%;
-  padding: 80px;
+  padding: 90px 0px 60px;
   background-color: ${COLORS.main.black};
 `;
 
