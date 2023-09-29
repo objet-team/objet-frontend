@@ -50,6 +50,7 @@ const ExhibitionPage = ({ data }: { data: ProductDetailData }) => {
       {step === 'content' && (
         <>
           <TopBar
+            productId={productId}
             imgUrl={artistPicPath}
             title={title}
             artistName={artistName}

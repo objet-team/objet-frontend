@@ -3,20 +3,46 @@ import * as styles from './CareerModal.style';
 import { COLORS } from '@/constants/styles';
 import Text from '@/components/common/Text';
 import PurpleFillBtn from '@/components/common/Button/PurpleFillBtn';
+import postHiring from '@/apis/postHiring';
+import api from '@/services/TokenService';
+import useInput from '@/hooks/useInput';
+import { PostHiringReq } from '@/constants/types/user';
 
 export interface CareerModalProps {
+  productId: number;
   careerClick: boolean;
   setCareerClick: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CareerModal = ({ careerClick, setCareerClick }: CareerModalProps) => {
-  const onClick = () => {
+const CareerModal = ({
+  productId,
+  careerClick,
+  setCareerClick,
+}: CareerModalProps) => {
+  const [company, onCompanyChange] = useInput('');
+  const [comment, onCommentChange] = useInput('');
+  const [contact, onContactChange] = useInput('');
+  const onClick = async () => {
+    const data: PostHiringReq = {
+      comment: comment,
+      company: company,
+      contact: contact,
+    };
+    const token = api.getToken();
+    const response = await postHiring(token, productId, data);
+    if (response) {
+      window.alert('채용제안 성공');
+      location.reload();
+    }
+    setCareerClick(!careerClick);
+  };
+  const onCloseClick = () => {
     setCareerClick(!careerClick);
   };
   return (
     <styles.ModalBackground>
       <styles.ModalBox>
-        <styles.ClosedButton onClick={onClick}>
+        <styles.ClosedButton onClick={onCloseClick}>
           <CloseButton />
         </styles.ClosedButton>
         <Text color={COLORS.main.black} textStyleName="subtitle">
@@ -31,7 +57,7 @@ const CareerModal = ({ careerClick, setCareerClick }: CareerModalProps) => {
               *
             </Text>
           </styles.RowContainer>
-          <styles.InputContainer />
+          <styles.InputContainer value={company} onChange={onCompanyChange} />
         </styles.ColContainer>
         <styles.ColContainer>
           <styles.RowContainer>
@@ -42,7 +68,7 @@ const CareerModal = ({ careerClick, setCareerClick }: CareerModalProps) => {
               *
             </Text>
           </styles.RowContainer>
-          <styles.InputContainer />
+          <styles.InputContainer value={comment} onChange={onCommentChange} />
         </styles.ColContainer>
         <styles.ColContainer>
           <styles.RowContainer>
@@ -53,7 +79,7 @@ const CareerModal = ({ careerClick, setCareerClick }: CareerModalProps) => {
               *
             </Text>
           </styles.RowContainer>
-          <styles.InputContainer />
+          <styles.InputContainer value={contact} onChange={onContactChange} />
         </styles.ColContainer>
         <styles.CheckboxContainer>
           <styles.CheckBox type="checkbox" />
@@ -62,7 +88,7 @@ const CareerModal = ({ careerClick, setCareerClick }: CareerModalProps) => {
           </Text>
         </styles.CheckboxContainer>
         <styles.ButtonContainer>
-          <PurpleFillBtn label="채용 제안하기" onClick={() => {}} />
+          <PurpleFillBtn label="채용 제안하기" onClick={onClick} />
         </styles.ButtonContainer>
       </styles.ModalBox>
     </styles.ModalBackground>

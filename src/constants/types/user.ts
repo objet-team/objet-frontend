@@ -4,3 +4,15 @@ export interface GetUserDto {
   userId: number;
   userName: string;
 }
+
+export interface PostHiringReq {
+  company: string;
+  comment: string;
+  contact: string;
+}
+export interface PostHiringRes {
+  localDateTime: string;
+  company: string;
+  comment: string;
+  contact: string;
+}

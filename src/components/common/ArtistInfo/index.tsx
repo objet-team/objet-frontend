@@ -8,13 +8,14 @@ import { COLORS } from '@/constants/styles';
 import CareerModal from '@/components/career/CareerModal';
 
 export interface ArtistInfoProps {
+  productId?: number;
   img: string;
   part?: string[];
   name: string;
   info?: string;
 }
 
-const ArtistInfo = ({ img, part, name, info }: ArtistInfoProps) => {
+const ArtistInfo = ({ productId, img, part, name, info }: ArtistInfoProps) => {
   const [follow, setFollow] = useState(false);
   const [careerClick, setCareerClick] = useState(false);
   const [portalElement, setPortalElement] = useState<Element | null>(null);
@@ -58,6 +59,7 @@ const ArtistInfo = ({ img, part, name, info }: ArtistInfoProps) => {
           )}
           {careerClick && portalElement ? (
             <CareerModal
+              productId={productId as number}
               careerClick={careerClick}
               setCareerClick={setCareerClick}
             />
