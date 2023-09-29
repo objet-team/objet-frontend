@@ -40,13 +40,8 @@ const ArtistInfo = ({ img, part, name, info }: ArtistInfoProps) => {
             alt="프로필이미지"
             style={{ display: 'block', borderRadius: '50%' }}
           />
-          {part?.map((item) => (
-            <Text color={COLORS.main.white} textStyleName="body2B">
-              {item}
-            </Text>
-          ))}
           <Text color={COLORS.main.white} textStyleName="body2B">
-            {part}
+            {part?.join(' ')}
           </Text>
           <Text color={COLORS.main.white} textStyleName="subtitle">
             {name}
