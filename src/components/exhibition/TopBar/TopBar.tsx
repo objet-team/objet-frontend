@@ -10,13 +10,14 @@ import { COLORS } from '@/constants/styles';
 import CareerModal from '../../career/CareerModal';
 
 export interface TopbarProps {
+  productId?: number;
   imgUrl: string;
   title: string;
   artistName: string;
 }
 
 // TODO Image
-const TopBar = ({ imgUrl, title, artistName }: TopbarProps) => {
+const TopBar = ({ productId, imgUrl, title, artistName }: TopbarProps) => {
   const [careerClick, setCareerClick] = useState(false);
   const [portalElement, setPortalElement] = useState<Element | null>(null);
 
@@ -64,6 +65,7 @@ const TopBar = ({ imgUrl, title, artistName }: TopbarProps) => {
           <styles.RowContainer>
             {careerClick && portalElement ? (
               <CareerModal
+                productId={productId as number}
                 careerClick={careerClick}
                 setCareerClick={setCareerClick}
               />
