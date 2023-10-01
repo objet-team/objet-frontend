@@ -21,14 +21,12 @@ const DesignTypeItem = ({
   const [click, setClick] = useState(false);
   const onClick = () => {
     setClick(!click);
-    console.log(click);
     const value = getKeyByValue(DesignTypeData, label);
     if (click == false) {
       setCategoryList([...categoryList, value as string]);
     } else {
       const newCategoryList = categoryList.filter((it) => it !== value);
       setCategoryList(newCategoryList);
-      console.log('삭제된', categoryList);
     }
   };
   return (

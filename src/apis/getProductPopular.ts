@@ -7,7 +7,7 @@ export const getProductPopular = async (): Promise<GetProductPopularDto> => {
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/product/popular`;
 
     const data = await client.get(url);
-    console.log(data);
+
     return data.data;
   } catch (error) {
     throw error;
