@@ -3,3 +3,7 @@ export interface HiringData {
   company: string;
   coment: string;
 }
+
+export interface GetHiringDatList {
+  hiringInfoList: HiringData[];
+}
