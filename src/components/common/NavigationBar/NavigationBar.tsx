@@ -16,7 +16,6 @@ const NavigationBar = () => {
     setPortalElement(document.getElementById('root-modal'));
   }, [loginClick || registerClick]);
   const onLoginClick = () => {
-    console.log(loginClick);
     setLoginClick(!loginClick);
   };
   const onRegisterClick = () => {
