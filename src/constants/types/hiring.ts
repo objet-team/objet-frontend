@@ -4,6 +4,6 @@ export interface HiringData {
   coment: string;
 }
 
-export interface GetHiringDatList {
+export interface GetHiringDataList {
   hiringInfoList: HiringData[];
 }

@@ -21,6 +21,7 @@ const ShopPageArtItem = ({
   artistName,
   heartCount,
 }: ShopPageArtItemProps) => {
+  console.log(artImg);
   return (
     <styles.ArtItemContainer>
       <styles.ImageContainer>
