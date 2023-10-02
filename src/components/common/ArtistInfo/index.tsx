@@ -6,8 +6,11 @@ import * as styles from './ArtistInfo.style';
 import Text from '../Text';
 import { COLORS } from '@/constants/styles';
 import CareerModal from '@/components/career/CareerModal';
+import api from '@/services/TokenService';
+import getFollow from '@/apis/getFollow';
 
 export interface ArtistInfoProps {
+  artistId: number;
   productId?: number;
   img: string;
   part?: string[];
@@ -15,15 +18,28 @@ export interface ArtistInfoProps {
   info?: string;
 }
 
-const ArtistInfo = ({ productId, img, part, name, info }: ArtistInfoProps) => {
+const ArtistInfo = ({
+  artistId,
+  productId,
+  img,
+  part,
+  name,
+  info,
+}: ArtistInfoProps) => {
   const [follow, setFollow] = useState(false);
   const [careerClick, setCareerClick] = useState(false);
   const [portalElement, setPortalElement] = useState<Element | null>(null);
+  const token = api.getToken();
+  console.log(artistId);
   useEffect(() => {
     setPortalElement(document.getElementById('root-modal'));
   }, [careerClick]);
-  const onFollowClick = () => {
-    setFollow(!follow);
+  const onFollowClick = async () => {
+    console.log(artistId);
+    const response = await getFollow(token, artistId);
+    if (response) {
+      setFollow(!follow);
+    }
   };
   const onCareerClick = () => {
     setCareerClick(!careerClick);

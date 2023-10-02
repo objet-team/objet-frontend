@@ -7,7 +7,7 @@ export const getArtistInfoPublic = async (
   id: number,
 ): Promise<GetArtistMyPageDto> => {
   try {
-    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/artist/info/public/${id}`;
+    const url = `/api/v1/artist/info/public/${id}`;
     const data = await client.get(url, {
       headers: {
         Authorization: token,
