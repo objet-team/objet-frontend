@@ -3,16 +3,19 @@ import CareerLine from '@public/icons/mypage/CareerLine.svg';
 import * as styles from './CareerOffer.style';
 import Text from '@/components/common/Text';
 import { COLORS } from '@/constants/styles';
+import { GetHiringDataList } from '@/constants/types/hiring';
 
-export interface CareerProps {
-  company: string;
-  date: string;
-}
-export interface CareerListProps {
-  data: CareerProps[];
-}
+// export interface CareerInfoProps {
+//   localDateTime: string;
+//   company: string;
+//   comment: string;
+//   contact: string;
+// }
+// export interface CareerInfoList {
+//   data: CareerInfoProps[];
+// }
 
-const CareerOffer = ({ data }: CareerListProps) => {
+const CareerOffer = ({ hiringInfoList }: GetHiringDataList) => {
   const onClick = () => {};
   return (
     <styles.Container>
@@ -22,8 +25,8 @@ const CareerOffer = ({ data }: CareerListProps) => {
           채용 제의
         </Text>
       </styles.RowContainer>
-      {data.map((item) => (
-        <styles.CareerLineContainer key={data.indexOf(item)}>
+      {hiringInfoList?.map((item) => (
+        <styles.CareerLineContainer key={hiringInfoList.indexOf(item)}>
           <styles.RowContainer>
             <CareerLine />
             <styles.ColContainer>
@@ -31,7 +34,7 @@ const CareerOffer = ({ data }: CareerListProps) => {
                 {item.company}
               </Text>
               <Text color={COLORS.font.black60} textStyleName="body2B">
-                {item.company}
+                {item.localDateTime.substring(0, 10)}
               </Text>
             </styles.ColContainer>
           </styles.RowContainer>

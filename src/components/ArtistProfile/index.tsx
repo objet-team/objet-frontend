@@ -43,6 +43,7 @@ const ArtistProfile = () => {
     <styles.Container>
       <Banner
         isArtist
+        artistId={parseInt(id)}
         name={name}
         img={profile}
         part={categoryList}

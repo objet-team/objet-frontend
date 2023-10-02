@@ -12,6 +12,7 @@ export interface BannerProps {
   followCount?: number;
   part?: string[];
   info?: string;
+  artistId?: number;
 }
 
 const Banner = ({
@@ -22,10 +23,17 @@ const Banner = ({
   followCount,
   part,
   info,
+  artistId,
 }: BannerProps) => (
   <styles.BannerContainer>
     {isArtist ? (
-      <ArtistInfo img={img} name={name} part={part} info={info} />
+      <ArtistInfo
+        img={img}
+        name={name}
+        part={part}
+        info={info}
+        artistId={artistId as number}
+      />
     ) : (
       <UserInfo
         img={img}

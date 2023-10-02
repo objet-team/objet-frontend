@@ -9,6 +9,7 @@ export const RowContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
+  cursor: pointer;
 `;
 export const CareerLineContainer = styled.div`
   display: flex;

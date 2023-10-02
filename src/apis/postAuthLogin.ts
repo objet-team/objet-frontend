@@ -1,6 +1,5 @@
 import { GetUserDto } from '@/constants/types/user';
 import client from './client';
-import { GetProductPopularDto } from '@/constants/types/home';
 
 export const postAuthLogin = async (codeParam: string): Promise<GetUserDto> => {
   try {
@@ -9,7 +8,7 @@ export const postAuthLogin = async (codeParam: string): Promise<GetUserDto> => {
     console.log('로그인진입');
     const data = await client.post(url, {
       authorizationCode: codeParam,
-      isLocal: false,
+      isLocal: true,
     });
     console.log(data);
     return await data.data;
