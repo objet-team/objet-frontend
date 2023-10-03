@@ -22,6 +22,7 @@ export interface GetProductWeeklyDto {
 export interface GetProductNewDto {
   productInfos: GetProductData[];
 }
+
 export interface ProductDetailData {
   productId: number;
   title: string;

@@ -1,4 +1,4 @@
-import getProductPopular from '@/apis/getProductPopular';
+import { getProductPopular } from '@/apis/product';
 import { GetProductPopularDto } from '@/constants/types/home';
 import { useQuery } from '@tanstack/react-query';
 export const useGetProductPopular = () => {

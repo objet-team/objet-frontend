@@ -6,18 +6,7 @@ import { useGetProductNew } from '@/hooks/useGetProductNew';
 
 const ArtSection = () => {
   const { data, isLoading } = useGetProductNew();
-  // <styles.Wrapper>
-  //   <styles.Section>
-  //     {[...ArtList, ArtList[0]].map((art) => (
-  //       <ArtItem
-  //         key={art.id}
-  //         image={art.image}
-  //         artistName={art.artistName}
-  //         likeCount={art.likeCount}
-  //       />
-  //     ))}
-  //   </styles.Section>
-  // </styles.Wrapper>;
+
   return (
     <styles.Wrapper>
       <styles.Section>
