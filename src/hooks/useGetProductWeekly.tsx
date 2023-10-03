@@ -1,4 +1,4 @@
-import getProductWeekly from '@/apis/getProductWeekly';
+import { getProductWeekly } from '@/apis/product';
 import { GetProductWeeklyDto } from '@/constants/types/home';
 import { useQuery } from '@tanstack/react-query';
 export const useGetProductWeekly = () => {

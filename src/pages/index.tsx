@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import NavigationBar from '@/components/common/NavigationBar';
-import MainBanner from '@/components/main/MainBanner';
-import ArtContent from '@/components/main/ArtContent/ArtContent';
-import api from '@/services/TokenService';
 import LoginAfterNavigationBar from '@/components/common/NavigationBar/LoginAfterNavigationBar';
 import ArtistNavigationBar from '@/components/common/NavigationBar/ArtistNavigationBar';
+
+import MainBanner from '@/components/main/MainBanner';
+import ArtContent from '@/components/main/ArtContent';
+import api from '@/services/TokenService';
 
 const Home = () => {
   const token = api.getToken();
