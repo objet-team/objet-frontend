@@ -10,6 +10,7 @@ import { editorContentAtom } from '@/states/ExhibitionAtom';
 import Content from '@/components/exhibition/Content';
 import * as styles from './ContentEditor.style';
 import ImageElementInput from './ImageElementInput';
+import { uploadImage } from '@/apis/image';
 
 interface ContentEditorProps {
   placeholder?: string;
@@ -83,13 +84,12 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
   };
 
   // 이미지 첨부파일 선택 완료시 실행되는 함수
-  // TODO connect server api
-  const onSelectImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // const file = e.target.files[0];
-    // addImageElement(300, 300, url, 'right');
+  const onSelectImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
 
-    const url =
-      'https://images.unsplash.com/photo-1695239510467-f1e93d649c2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80';
+    if (!files || files.length < 1) return;
+
+    const url = await uploadImage(files[0]);
     setImageUrl(url);
   };
 
@@ -172,14 +172,14 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
         <styles.ButtonsWrapper>
           <styles.Button
             className="next-btn"
-            onClick={() => router.push('/exhibition/preview/intro/type=upload')}
+            onClick={() => router.push('/exhibition/preview?type=upload')}
           >
             다음
           </styles.Button>
           <styles.Button onClick={() => {}}>임시 저장하기</styles.Button>
         </styles.ButtonsWrapper>
         <styles.PreviewButton
-          onClick={() => router.push('/exhibition/preview/intro')}
+          onClick={() => router.push('/exhibition/preview')}
         >
           <Image
             src="/icons/editor/preview.svg"

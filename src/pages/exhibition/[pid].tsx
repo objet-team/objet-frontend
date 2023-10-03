@@ -3,7 +3,7 @@ import { getProductDetatil } from '@/apis/product';
 
 import ArtistInfo from '@/components/common/ArtistInfo';
 import Content from '@/components/exhibition/Content';
-import Intro from '@/components/exhibition/Intro/Intro';
+import Intro from '@/components/exhibition/Intro';
 import TopBar from '@/components/exhibition/TopBar';
 import { COLORS } from '@/constants/styles';
 import { ProductDetailData } from '@/constants/types/home';
