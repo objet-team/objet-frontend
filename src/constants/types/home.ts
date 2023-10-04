@@ -24,6 +24,7 @@ export interface GetProductNewDto {
 }
 export interface ProductDetailData {
   productId: number;
+  artistId: number;
   title: string;
   category: string;
   detail: string;

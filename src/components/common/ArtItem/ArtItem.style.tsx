@@ -10,7 +10,9 @@ export const Wrapper = styled.div`
   gap: 8px;
   margin-bottom: 36px;
 `;
-
+export const ArtWrapper = styled.div`
+  cursor: pointer;
+`;
 export const ArtInfoWrap = styled.div`
   width: 100%;
   height: 28px;
