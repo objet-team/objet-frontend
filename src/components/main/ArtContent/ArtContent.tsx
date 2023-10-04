@@ -16,7 +16,7 @@ export interface FilterType {
 
 const ArtContent = () => {
   const [filter, setFilter] = useState<FilterType>({
-    category: 'all',
+    category: 'graphicDesign',
     sort: 'recommend',
   });
 

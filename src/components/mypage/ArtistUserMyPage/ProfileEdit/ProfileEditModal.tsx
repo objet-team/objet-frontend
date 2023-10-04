@@ -123,7 +123,7 @@ const ArtistProfileEditModal = ({
           </Text>
         </styles.CheckboxContainer>
         <styles.ButtonContainer>
-          <Button onClick={onClick} label="작가등록 신청하기" />
+          <Button fill="white" onClick={onClick} label="작가등록 신청하기" />
         </styles.ButtonContainer>
       </styles.ModalBox>
     </styles.ModalBackground>
