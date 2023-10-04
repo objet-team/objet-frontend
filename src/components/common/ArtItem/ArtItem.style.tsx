@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 8px;
   margin-bottom: 36px;
+  cursor: pointer;
 `;
 export const ArtWrapper = styled.div`
   cursor: pointer;

@@ -7,13 +7,14 @@ export const MenuWrapper = styled.div`
   gap: 20px;
   margin: 24px 0px 40px;
   max-width: 1120px;
+  overflow: hidden;
 `;
 
 export const CategoryFilter = styled.div`
   width: 170px;
   height: 80px;
   position: relative;
-  overflow: hidden;
+
   cursor: pointer;
 
   display: flex;

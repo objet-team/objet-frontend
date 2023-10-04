@@ -3,7 +3,7 @@ import { useState } from 'react';
 import * as styles from './UserInfo.style';
 import Text from '../Text';
 import { COLORS } from '@/constants/styles';
-import WhiteFillBtn from '../Button/WhiteFillBtn';
+import Button from '../Button';
 import InputField from './InputField';
 
 interface UserInfoProps {
@@ -45,10 +45,10 @@ const UserInfo = ({ img, email, name, followCount }: UserInfoProps) => {
       {editName ? (
         <styles.ColContainer>
           <InputField />
-          <WhiteFillBtn label="프로필 수정완료" onClick={onClick} />
+          <Button fill="white" label="프로필 수정완료" onClick={onClick} />
         </styles.ColContainer>
       ) : (
-        <WhiteFillBtn label="프로필 수정하기" onClick={onClick} />
+        <Button fill="white" label="프로필 수정하기" onClick={onClick} />
       )}
     </styles.UserInfoContainer>
   );

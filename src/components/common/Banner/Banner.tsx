@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import * as styles from './Banner.style';
 import UserInfo from '../UserInfo/UserInfo';
-import BannerImg from '../../../../public/mypage/BannerImg.png';
 import ArtistInfo from '../ArtistInfo';
 
 export interface BannerProps {

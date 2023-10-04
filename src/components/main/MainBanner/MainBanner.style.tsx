@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
 export const Banner = styled.div`
   width: fit-content;
-  max-width: 1120px;
+  overflow-x: hidden;
   margin: 0 auto;
 `;
 
@@ -26,6 +26,7 @@ export const PostWrap = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
+  max-width: 1120px;
 
   .post:nth-child(odd) {
     margin-top: -24px;
@@ -41,6 +42,7 @@ export const Post = styled.div`
   height: 176px;
   background-color: ${COLORS.bg.white};
   position: relative;
+  cursor: pointer;
 
   .flag {
     position: absolute;

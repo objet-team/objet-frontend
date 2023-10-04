@@ -24,9 +24,9 @@ export const cancelFollowArtist = async (artistId: number): Promise<string> => {
 
 // 특정 아티스트를 팔로우 할 수 있는지, 즉 현재 팔로우 상태가 아닌지를 확인
 // 팔로우 안하고 있다면 반환값이 true
-export const checkFollowAvailability = async (
+export const getFollowAvailability = async (
   artistId: number,
-): Promise<string> => {
+): Promise<boolean> => {
   try {
     const url = `/api/v1/follow/availability/${artistId}`;
     const res = await client.get(url);

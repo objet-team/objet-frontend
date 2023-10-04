@@ -4,7 +4,17 @@ import ArtistNavigationBar from '@/components/common/NavigationBar/ArtistNavigat
 import LoginAfterNavigationBar from '@/components/common/NavigationBar/LoginAfterNavigationBar';
 import api from '@/services/TokenService';
 
-const ArtistProfilePage = () => {
+import {
+  GetServerSideProps as GSSP,
+  GetServerSidePropsContext as GSSP_CTX,
+} from 'next';
+
+export const getServerSideProps: GSSP = async (context: GSSP_CTX) => {
+  const artistId = Number(context.query.id as string);
+  return { props: { artistId } };
+};
+
+const ArtistProfilePage = ({ artistId }: { artistId: number }) => {
   const token = api.getToken();
   const role = api.getRole();
 
@@ -17,7 +27,7 @@ const ArtistProfilePage = () => {
       ) : (
         <ArtistNavigationBar />
       )}
-      <ArtistProfile />
+      <ArtistProfile id={artistId} />
     </>
   );
 };

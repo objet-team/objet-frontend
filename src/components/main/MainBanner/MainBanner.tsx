@@ -4,8 +4,10 @@ import Text from '@/components/common/Text';
 import { useGetProductWeekly } from '@/hooks/useGetProductWeekly';
 import Image from 'next/image';
 import * as styles from './MainBanner.style';
+import { useRouter } from 'next/router';
 
 const MainBanner = () => {
+  const router = useRouter();
   const { data, isLoading } = useGetProductWeekly();
 
   return (
@@ -25,7 +27,11 @@ const MainBanner = () => {
                   <styles.Post key={idx} className="post"></styles.Post>
                 ))
             : data?.productInfos.map((info) => (
-                <styles.Post key={info.productId} className="post">
+                <styles.Post
+                  key={info.productId}
+                  onClick={() => router.push(`/exhibition/${info.productId}`)}
+                  className="post"
+                >
                   <Text
                     color={COLORS.main.white}
                     textStyleName="body2B"
