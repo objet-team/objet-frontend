@@ -26,6 +26,7 @@ const ExhibitionPage = ({ data }: { data: ProductDetailData }) => {
 
   const {
     productId,
+    artistId,
     title,
     category,
     detail,
@@ -57,7 +58,7 @@ const ExhibitionPage = ({ data }: { data: ProductDetailData }) => {
         </>
       )}
       <ArtistInfo
-        artistId={1}
+        artistId={artistId}
         img={artistPicPath}
         part={[category]}
         info={artistInfo}

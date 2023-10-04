@@ -8,6 +8,7 @@ import { COLORS } from '@/constants/styles';
 import CareerModal from '@/components/career/CareerModal';
 import api from '@/services/TokenService';
 import getFollow from '@/apis/getFollow';
+import { useGetFollowAvailability } from '@/hooks/useGetFollowAvailability';
 
 export interface ArtistInfoProps {
   artistId: number;
@@ -30,13 +31,19 @@ const ArtistInfo = ({
   const [careerClick, setCareerClick] = useState(false);
   const [portalElement, setPortalElement] = useState<Element | null>(null);
   const token = api.getToken();
-  console.log(artistId);
+
+  const { data: followData } = useGetFollowAvailability(token, artistId);
+  console.log(followData);
+  if (follow == false) {
+    setFollow(true);
+  }
   useEffect(() => {
     setPortalElement(document.getElementById('root-modal'));
   }, [careerClick]);
   const onFollowClick = async () => {
     console.log(artistId);
     const response = await getFollow(token, artistId);
+    console.log(response);
     if (response) {
       setFollow(!follow);
     }

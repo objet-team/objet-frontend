@@ -39,8 +39,10 @@ const ArtItem = ({
     );
   };
   return (
-    <styles.Wrapper className={className} onClick={onItemClick}>
-      <Image src={image} fill alt="art-img" className="art-img" />
+    <styles.Wrapper className={className}>
+      <styles.ArtWrapper onClick={onItemClick}>
+        <Image src={image} fill alt="art-img" className="art-img" />
+      </styles.ArtWrapper>
       <styles.ArtInfoWrap>
         <styles.ProfileWrap>
           <styles.ProfileImage onClick={onProfileClick}>
