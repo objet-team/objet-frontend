@@ -34,7 +34,7 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
       ...data,
       {
         type: 'text',
-        id: data.length + 1,
+        order: data.length + 1,
         sizeType,
         description,
         align: align || 'left',
@@ -53,7 +53,7 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
       ...data,
       {
         type: 'image',
-        id: data.length + 1,
+        order: data.length + 1,
         width,
         height,
         url,
@@ -68,7 +68,7 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
       ...data,
       {
         type: 'space',
-        id: data.length + 1,
+        order: data.length + 1,
       },
     ]);
   };

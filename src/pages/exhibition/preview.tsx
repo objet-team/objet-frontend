@@ -72,11 +72,10 @@ export default ExhibitionPreviewPage;
 
 const IntroWrapper = styled.div`
   width: 100%;
-  height: 100%;
   min-height: 100vh;
   background-color: ${COLORS.main.black};
   color: ${COLORS.main.white};
-  padding: 16px 80px;
+  padding: 16px 80px 80px;
 
   display: flex;
   flex-direction: column;

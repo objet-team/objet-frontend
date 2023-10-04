@@ -28,7 +28,7 @@ const Content = ({ isEditing = false, data }: ContentProps) => {
         );
       }
       case 'image': {
-        const { id, url, width, height, align } = element;
+        const { url, width, height, align } = element;
         return (
           <styles.ImageElement className={`${align}-element`}>
             <Image
@@ -52,7 +52,7 @@ const Content = ({ isEditing = false, data }: ContentProps) => {
   return (
     <styles.Wrapper>
       {data.map((element) => (
-        <React.Fragment key={element.id}>
+        <React.Fragment key={element.order}>
           {renderElement(element)}
         </React.Fragment>
       ))}

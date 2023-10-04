@@ -1,6 +1,7 @@
 import {
   GetProductPopularDto,
   GetProductWeeklyDto,
+  ProductRegisterReq,
 } from '@/constants/types/product';
 import client from './client';
 import { GetProductNewDto } from '@/constants/types/home';
@@ -60,6 +61,26 @@ export const getProductDetatil = async (id: number) => {
     const data = await res.json();
 
     return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+/** 작품 등록 API  */
+export const registerProduct = async (
+  inputs: ProductRegisterReq,
+): Promise<{
+  message: string;
+  productId: number;
+}> => {
+  try {
+    const res = await client.post('/api/v1/product/register', inputs, {
+      headers: {
+        Authorization:
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImV4cCI6MTY5NjM5ODY1OSwidXVpZCI6ImJhbGxzb25hMDkyNUBuYXZlci5jb20ifQ.suqbvwwsyuYK3yRej4oZ4IhVa46sQg4Uhxww4Meycjy8fYYIR7iLdzC0ucJhBhci3mC5sVm7KykjEZfz7z1EKQ',
+      },
+    });
+    return res.data;
   } catch (error) {
     throw error;
   }
