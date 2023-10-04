@@ -72,6 +72,7 @@ export default ExhibitionPreviewPage;
 
 const IntroWrapper = styled.div`
   width: 100%;
+  height: 100%;
   min-height: 100vh;
   background-color: ${COLORS.main.black};
   color: ${COLORS.main.white};

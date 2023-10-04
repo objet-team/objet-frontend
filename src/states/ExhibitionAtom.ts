@@ -11,7 +11,7 @@ interface UploadFormValue {
 export const uploadFormAtom = atom<UploadFormValue>({
   key: 'uploadFormAtom',
   default: {
-    part: 'all',
+    part: 'graphicDesign',
     title: '',
     description: '',
   },

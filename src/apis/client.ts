@@ -1,5 +1,5 @@
 import axios from 'axios';
-import TokenService from '@/services/TokenService';
+import api from '@/services/TokenService';
 
 export const client = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
@@ -10,11 +10,8 @@ export const client = axios.create({
 });
 
 client.interceptors.request.use((config) => {
-  if (
-    TokenService.getToken() !== undefined &&
-    TokenService.getId() !== undefined
-  ) {
-    config.headers.authorization = `Bearer ${TokenService.getToken()}`;
+  if (api.getToken() !== undefined && api.getId() !== undefined) {
+    config.headers.authorization = `Bearer ${api.getToken()}`;
   }
   return config;
 });

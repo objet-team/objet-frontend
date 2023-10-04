@@ -6,6 +6,7 @@ export const MenuWrapper = styled.div`
   align-items: center;
   gap: 20px;
   margin: 24px 0px 40px;
+  max-width: 1120px;
 `;
 
 export const CategoryFilter = styled.div`
