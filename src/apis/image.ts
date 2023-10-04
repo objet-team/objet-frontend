@@ -1,5 +1,5 @@
 import axios from 'axios';
-import client from './client';
+import client from './API';
 
 /** 전시 작품 최신순 조회 API  */
 export const uploadImage = async (file: File) => {

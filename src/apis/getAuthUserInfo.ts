@@ -1,5 +1,5 @@
 import { GetMyPageDataDto } from '@/constants/types/mypage';
-import client from './client';
+import client from './API';
 import { headers } from '../../next.config';
 
 export const getAuthUserInfo = async (

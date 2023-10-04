@@ -1,5 +1,5 @@
 import { GetHiringDataList } from '@/constants/types/hiring';
-import client from './client';
+import client from './API';
 
 export const getHiringProduct = async (
   token: string,
