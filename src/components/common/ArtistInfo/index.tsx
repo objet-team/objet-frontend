@@ -26,16 +26,17 @@ const ArtistInfo = ({
   name,
   info,
 }: ArtistInfoProps) => {
-  const [follow, setFollow] = useState(false);
+  const [isFollowing, setIsFollowing] = useState(false);
   const [careerClick, setCareerClick] = useState(false);
   const [portalElement, setPortalElement] = useState<Element | null>(null);
+
   const token = api.getToken();
 
-  const { data: followData } = useGetFollowAvailability(token, artistId);
-  console.log(followData);
-  if (follow == false) {
-    setFollow(true);
-  }
+  const { data: followAvailable } = useGetFollowAvailability(artistId);
+
+  useEffect(() => {
+    setIsFollowing(followAvailable === false ? true : false);
+  }, []);
 
   useEffect(() => {
     setPortalElement(document.getElementById('root-modal'));
@@ -43,12 +44,13 @@ const ArtistInfo = ({
 
   // 팔로우 버튼 누르면 실행되는 함수
   const onFollowClick = async () => {
-    console.log(artistId);
-    const response = await followArtist(artistId);
-    console.log(response);
-    if (response) {
-      setFollow(!follow);
+    if (!token) {
+      alert('로그인 먼저 진행해주세요!');
+      return;
     }
+
+    const isSuccess = await followArtist(artistId);
+    if (isSuccess) setIsFollowing(true);
   };
 
   // 채용 제의하기 버튼 누르면 실행되는 함수
@@ -79,7 +81,7 @@ const ArtistInfo = ({
         </styles.ColContainer>
         <styles.RowContainer>
           <Button
-            fill={follow ? 'purple' : 'white'}
+            fill={isFollowing ? 'purple' : 'white'}
             label="팔로우"
             onClick={onFollowClick}
             className="follow-btn"
