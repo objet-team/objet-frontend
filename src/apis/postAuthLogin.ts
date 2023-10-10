@@ -5,7 +5,7 @@ export const postAuthLogin = async (codeParam: string): Promise<GetUserDto> => {
   try {
     const data = await client.post('/api/v1/auth/kakao', {
       authorizationCode: codeParam,
-      isLocal: true,
+      isLocal: false,
     });
     return await data.data;
   } catch (error) {
