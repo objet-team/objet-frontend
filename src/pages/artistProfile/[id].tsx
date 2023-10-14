@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import ArtistProfile from '@/components/ArtistProfile';
 import NavigationBar from '@/components/common/NavigationBar';
 import ArtistNavigationBar from '@/components/common/NavigationBar/ArtistNavigationBar';

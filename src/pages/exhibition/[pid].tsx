@@ -1,6 +1,6 @@
 export const runtime = 'experimental-edge';
-import { getProductDetatil } from '@/apis/product';
 
+import { getProductDetatil } from '@/apis/product';
 import ArtistInfo from '@/components/common/ArtistInfo';
 import Content from '@/components/exhibition/Content';
 import Intro from '@/components/exhibition/Intro/Intro';
