@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const runtime = 'experimental-edge';
 
 import ArtistProfile from '@/components/ArtistProfile';
 import NavigationBar from '@/components/common/NavigationBar';
