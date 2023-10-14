@@ -1,11 +1,11 @@
 import { atom } from 'recoil';
 import { ElementProps } from '@/constants/types/editor';
 
-interface UploadFormValue {
+export interface UploadFormValue {
   name: string;
   price: number;
-  deliveryFee: number;
-  imageList: string[];
+  deliveryCharge: number;
+  imageList: { order: number; name: string; url: string }[];
 }
 
 export const uploadFormAtom = atom<UploadFormValue>({
@@ -13,7 +13,7 @@ export const uploadFormAtom = atom<UploadFormValue>({
   default: {
     name: '',
     price: 0,
-    deliveryFee: 0, // 값이 0인 경우 배송비 미포함
+    deliveryCharge: 0, // 값이 0인 경우 배송비 미포함
     imageList: [],
   },
 });

@@ -5,17 +5,36 @@ import { COLORS } from '@/constants/styles';
 import ContentEditor from '@/components/common/ContentEditor';
 import { uploadFormAtom } from '@/states/GoodsAtom';
 import * as styles from './UploadForm.style';
+import { uploadImage } from '@/apis/image';
+import Image from 'next/image';
 
 const UploadForm = () => {
   const [inputs, setInputs] = useRecoilState(uploadFormAtom);
-  const { name, price, deliveryFee, imageList } = inputs;
+  const { name, price, deliveryCharge, imageList } = inputs;
 
-  const [containFee, setContainFee] = useState(false);
+  const [containCharge, setContainCharge] = useState(false);
 
   // 이미지 업로드
   const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) return;
-    //setInputs({ ...inputs, imageList: [...imageList, ''] });
+    const files = e.target.files;
+
+    if (!files || files.length < 1) return;
+
+    const name = files[0].name;
+    const url = await uploadImage(files[0]);
+
+    setInputs({
+      ...inputs,
+      imageList: [...imageList, { order: imageList.length, name, url }],
+    });
+  };
+
+  // 썸네일 이미지 제거
+  const removeImageFile = (order: number) => {
+    setInputs({
+      ...inputs,
+      imageList: imageList.filter((image) => image.order !== order),
+    });
   };
 
   return (
@@ -54,27 +73,32 @@ const UploadForm = () => {
             <styles.Row className="delivery-field">
               <styles.DeliverButton
                 onClick={() => {
-                  setContainFee(false);
-                  setInputs({ ...inputs, deliveryFee: 0 });
+                  setContainCharge(false);
+                  setInputs({ ...inputs, deliveryCharge: 0 });
                 }}
-                className={containFee ? '' : 'active-btn'}
+                className={containCharge ? '' : 'active-btn'}
               >
                 미포함
               </styles.DeliverButton>
               <styles.DeliverButton
-                onClick={() => setContainFee(true)}
-                className={containFee ? 'active-btn' : ''}
+                onClick={() => setContainCharge(true)}
+                className={containCharge ? 'active-btn' : ''}
               >
                 포함
               </styles.DeliverButton>
               <styles.TextInput
-                className={`deliveryFee ${containFee ? 'active-input' : ''}`}
-                disabled={!containFee}
+                className={`deliveryCharge ${
+                  containCharge ? 'active-input' : ''
+                }`}
+                disabled={!containCharge}
                 placeholder="배송비를 입력해주세요."
                 type="number"
-                value={deliveryFee || ''}
+                value={deliveryCharge || ''}
                 onChange={(e) =>
-                  setInputs({ ...inputs, deliveryFee: Number(e.target.value) })
+                  setInputs({
+                    ...inputs,
+                    deliveryCharge: Number(e.target.value),
+                  })
                 }
               />
             </styles.Row>
@@ -85,25 +109,43 @@ const UploadForm = () => {
         <styles.Row className="image-label">
           <Text color={COLORS.main.black} textStyleName="subtitle">
             굿즈 사진 업로드
-            <styles.FileInput
-              type="file"
-              //  accept="image/jpg,impge/png,image/jpeg,image/gif"
-              onChange={onFileChange}
-            />
           </Text>
           <Text color={COLORS.font.black60} textStyleName="body2B">
             최대 10장까지 가능해요
           </Text>
         </styles.Row>
         <styles.ImgUploadBox>
-          <styles.ImgUploadBtn>파일 업로드하기</styles.ImgUploadBtn>
+          <styles.ImgUploadBtn>
+            파일 업로드하기
+            <styles.FileInput
+              type="file"
+              accept="image/jpg,image/png,image/jpeg,image/gif"
+              onChange={onFileChange}
+            />
+          </styles.ImgUploadBtn>
+          {imageList.map((image) => (
+            <styles.ImgFileBox key={image.order}>
+              {image.name}
+              <Image
+                src="/icons/close2.svg"
+                alt="remove-file-icon"
+                className="remove-icon"
+                width="17"
+                height="17"
+                onClick={() => removeImageFile(image.order)}
+              />
+            </styles.ImgFileBox>
+          ))}
         </styles.ImgUploadBox>
       </styles.Field>
       <styles.Field>
         <Text color={COLORS.main.black} textStyleName="subtitle">
           제품 상세 설명
         </Text>
-        <ContentEditor placeholder="오른쪽 기능들을 사용하여 여러분의 굿즈 판매글을 완성해보세요." />
+        <ContentEditor
+          domain="shop"
+          placeholder="오른쪽 기능들을 사용하여 여러분의 굿즈 판매글을 완성해보세요."
+        />
       </styles.Field>
     </styles.FormContainer>
   );

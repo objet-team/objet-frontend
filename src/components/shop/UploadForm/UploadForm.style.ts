@@ -38,7 +38,7 @@ export const Row = styled.div`
   display: flex;
   align-items: center;
 
-  .deliveryFee {
+  .deliveryCharge {
     width: 200px;
   }
 
@@ -83,6 +83,7 @@ export const ImgUploadBtn = styled.button`
   width: 146px;
   height: 35px;
   margin-right: 8px;
+  position: relative;
 
   border: 1px solid ${COLORS.font.black20};
   border-radius: 8px;
@@ -91,14 +92,24 @@ export const ImgUploadBtn = styled.button`
   font-weight: 600;
 `;
 
-export const ImgFileBox = styled.button`
+export const ImgFileBox = styled.div`
   width: 146px;
   height: 35px;
   border: 1px solid ${COLORS.font.black20};
   border-radius: 8px;
   font-size: 14px;
   font-weight: 400;
-  padding: 7px 16px;
+  padding: 7px 30px 7px 16px;
+  position: relative;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  .remove-icon {
+    position: absolute;
+    right: 10px;
+  }
 `;
 
 export const FileInput = styled.input`

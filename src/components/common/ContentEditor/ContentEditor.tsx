@@ -13,10 +13,11 @@ import ImageElementInput from './ImageElementInput';
 import { uploadImage } from '@/apis/image';
 
 interface ContentEditorProps {
+  domain: 'exhibition' | 'shop';
   placeholder?: string;
 }
 
-const ContentEditor = ({ placeholder }: ContentEditorProps) => {
+const ContentEditor = ({ domain, placeholder }: ContentEditorProps) => {
   const router = useRouter();
 
   const [editorMode, setEditorMode] = useState<ElementType | null>(null);
@@ -172,15 +173,13 @@ const ContentEditor = ({ placeholder }: ContentEditorProps) => {
         <styles.ButtonsWrapper>
           <styles.Button
             className="next-btn"
-            onClick={() => router.push('/exhibition/preview?type=upload')}
+            onClick={() => router.push(`/${domain}/preview?type=upload`)}
           >
             다음
           </styles.Button>
           <styles.Button onClick={() => {}}>임시 저장하기</styles.Button>
         </styles.ButtonsWrapper>
-        <styles.PreviewButton
-          onClick={() => router.push('/exhibition/preview')}
-        >
+        <styles.PreviewButton onClick={() => router.push(`/${domain}/preview`)}>
           <Image
             src="/icons/editor/preview.svg"
             alt="preview-icon"

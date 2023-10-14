@@ -53,7 +53,10 @@ const UploadForm = () => {
         <Text color={COLORS.main.black} textStyleName="subtitle">
           작품 업로드
         </Text>
-        <ContentEditor placeholder="오른쪽 기능들을 사용하여 여러분의 전시를 완성해보세요." />
+        <ContentEditor
+          domain="exhibition"
+          placeholder="오른쪽 기능들을 사용하여 여러분의 전시를 완성해보세요."
+        />
       </styles.Field>
     </styles.FormContainer>
   );
