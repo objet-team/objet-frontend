@@ -66,7 +66,11 @@ const Header = () => {
         <SortingMenu menu={sort} onClickMenu={onSelectSortFilter} />
       </styles.Row>
       <styles.CategoryMenuWrapper>
-        <ArtCategoryMenu menu={category} onClickMenu={onSelectCategoryFilter} />
+        <ArtCategoryMenu
+          menu={category}
+          onClickMenu={onSelectCategoryFilter}
+          containAll
+        />
       </styles.CategoryMenuWrapper>
     </styles.Container>
   );

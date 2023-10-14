@@ -1,8 +1,6 @@
 export const runtime = 'experimental-edge';
 
 import { GetServerSideProps, GetServerSidePropsContext as GSSPCTX } from 'next';
-import styled from '@emotion/styled';
-import { COLORS } from '@/constants/styles';
 import { useRecoilValue } from 'recoil';
 import { editorContentAtom, uploadFormAtom } from '@/states/GoodsAtom';
 import api from '@/services/TokenService';
