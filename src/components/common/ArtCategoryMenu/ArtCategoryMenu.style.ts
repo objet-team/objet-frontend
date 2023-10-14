@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { COLORS } from '@/constants/styles';
 
 export const MenuWrapper = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -12,51 +13,36 @@ export const CategoryFilter = styled.div`
   width: 170px;
   height: 80px;
   position: relative;
-  overflow: hidden;
   cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  .active-category {
-    width: 146px;
-    height: 56px;
-    border-radius: 100px;
-    background: rgba(255, 255, 255, 0.8);
-    z-index: 1;
-  }
-
-  .active-category .label {
-    background-color: transparent;
-  }
-  .active-category .background-img {
-    border-radius: 100px;
-  }
-`;
-
-export const Category = styled.div`
-  width: 170px;
-  height: 80px;
-  position: relative;
-
   .label {
     width: 100%;
     height: 100%;
-    background-color: ${COLORS.font.black60};
-    position: absolute;
-
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: ${COLORS.font.black60};
     z-index: 10;
+  }
+
+  .active-label {
+    background-color: transparent;
+  }
+
+  .active-wrap {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
   }
 `;
 
-export const ActiveBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: ${COLORS.main.purple};
-  position: absolute;
-  top: 0px;
+export const NonActiveBox = styled.div`
+  width: 170px;
+  height: 80px;
+  background-color: ${COLORS.font.black60};
 `;

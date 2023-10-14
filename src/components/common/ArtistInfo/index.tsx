@@ -1,14 +1,13 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import WhiteFillBtn from '../Button/WhiteFillBtn';
-import PurpleFillBtn from '../Button/PurpleFillBtn';
+import Button from '../Button';
 import * as styles from './ArtistInfo.style';
 import Text from '../Text';
 import { COLORS } from '@/constants/styles';
 import CareerModal from '@/components/career/CareerModal';
 import api from '@/services/TokenService';
-import getFollow from '@/apis/getFollow';
 import { useGetFollowAvailability } from '@/hooks/useGetFollowAvailability';
+import { followArtist } from '@/apis/follow';
 
 export interface ArtistInfoProps {
   artistId: number;
@@ -27,38 +26,44 @@ const ArtistInfo = ({
   name,
   info,
 }: ArtistInfoProps) => {
-  const [follow, setFollow] = useState(false);
+  const [isFollowing, setIsFollowing] = useState(false);
   const [careerClick, setCareerClick] = useState(false);
   const [portalElement, setPortalElement] = useState<Element | null>(null);
+
   const token = api.getToken();
 
-  const { data: followData } = useGetFollowAvailability(token, artistId);
-  console.log(followData);
-  if (follow == false) {
-    setFollow(true);
-  }
+  const { data: followAvailable } = useGetFollowAvailability(artistId);
+
+  useEffect(() => {
+    setIsFollowing(followAvailable === false ? true : false);
+  }, []);
+
   useEffect(() => {
     setPortalElement(document.getElementById('root-modal'));
   }, [careerClick]);
+
+  // 팔로우 버튼 누르면 실행되는 함수
   const onFollowClick = async () => {
-    console.log(artistId);
-    const response = await getFollow(token, artistId);
-    console.log(response);
-    if (response) {
-      setFollow(!follow);
+    if (!token) {
+      alert('로그인 먼저 진행해주세요!');
+      return;
     }
+
+    const isSuccess = await followArtist(artistId);
+    if (isSuccess) setIsFollowing(true);
   };
+
+  // 채용 제의하기 버튼 누르면 실행되는 함수
   const onCareerClick = () => {
     setCareerClick(!careerClick);
   };
+
   return (
     <styles.ArtistInfoContainer>
       <styles.ColContainer gap="20px">
         <styles.ColContainer gap="8px">
           <Image
-            src={
-              'https://images.unsplash.com/photo-1695239510467-f1e93d649c2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80'
-            }
+            src={img}
             width={96}
             height={96}
             alt="프로필이미지"
@@ -75,19 +80,24 @@ const ArtistInfo = ({
           </Text>
         </styles.ColContainer>
         <styles.RowContainer>
-          {follow ? (
-            <PurpleFillBtn label="팔로잉" onClick={onFollowClick} />
-          ) : (
-            <WhiteFillBtn label="팔로우" onClick={onFollowClick} />
-          )}
-          {careerClick && portalElement ? (
+          <Button
+            fill={isFollowing ? 'purple' : 'white'}
+            label="팔로우"
+            onClick={onFollowClick}
+            className="follow-btn"
+          />
+          <Button
+            fill="white"
+            label="채용 제의하기"
+            onClick={onCareerClick}
+            className="career-btn"
+          />
+          {careerClick && portalElement && (
             <CareerModal
               productId={productId as number}
               careerClick={careerClick}
               setCareerClick={setCareerClick}
             />
-          ) : (
-            <WhiteFillBtn label="채용 제의하기" onClick={onCareerClick} />
           )}
         </styles.RowContainer>
       </styles.ColContainer>

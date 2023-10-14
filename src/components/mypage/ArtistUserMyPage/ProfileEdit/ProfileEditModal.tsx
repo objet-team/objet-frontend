@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 import { COLORS } from '@/constants/styles';
 import Text from '../../../common/Text';
 import * as styles from './ProfileEditModal.style';
-import PurpleFillBtn from '../../../common/Button/PurpleFillBtn';
+import Button from '../../../common/Button';
 import useInput from '@/hooks/useInput';
 import useDetectClose from '@/hooks/useDetectClose';
 import { CategoryLabels, CategoryType } from '@/constants/types/art';
@@ -123,7 +123,7 @@ const ArtistProfileEditModal = ({
           </Text>
         </styles.CheckboxContainer>
         <styles.ButtonContainer>
-          <PurpleFillBtn onClick={onClick} label="작가등록 신청하기" />
+          <Button fill="white" onClick={onClick} label="작가등록 신청하기" />
         </styles.ButtonContainer>
       </styles.ModalBox>
     </styles.ModalBackground>

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import WhiteFillBtn from '../Button/WhiteFillBtn';
-import PurpleFillBtn from '../Button/PurpleFillBtn';
+import Button from '../Button';
 import * as styles from './ArtistUserInfo.style';
 import Text from '../Text';
 import { COLORS } from '@/constants/styles';
@@ -94,7 +93,7 @@ const ArtistUserInfo = ({
             setEditClick={setEditClick}
           />
         ) : (
-          <WhiteFillBtn label="프로필 수정하기" onClick={onEditClick} />
+          <Button fill="white" label="프로필 수정하기" onClick={onEditClick} />
         )}
       </styles.ColContainer>
     </styles.ArtistInfoContainer>

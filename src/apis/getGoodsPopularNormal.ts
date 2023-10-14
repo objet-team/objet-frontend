@@ -1,4 +1,4 @@
-import client from './client';
+import client from './API';
 import { GetGoodsPopularNormalDto } from '@/constants/types/shop';
 
 export const getGoodsPopularNormal =

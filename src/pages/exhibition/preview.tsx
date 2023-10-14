@@ -41,20 +41,11 @@ const ExhibitionPreviewPage = ({ type }: PreviewPageProps) => {
       {Bar[type]}
       <IntroWrapper>
         {step === 'intro' && (
-          <>
-            <Intro
-              title={title}
-              description={description}
-              moveToExhibition={() => {}}
-            />
-            <ArtistInfo
-              artistId={1}
-              img="https://images.unsplash.com/photo-1694572620159-e69049aeba00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
-              part={['UXUI디자이너']}
-              info="나는 유어슈 미녀 로지"
-              name="로지"
-            />
-          </>
+          <Intro
+            title={title}
+            description={description}
+            moveToExhibition={() => setStep('content')}
+          />
         )}
         {step === 'content' && (
           <>
@@ -81,11 +72,10 @@ export default ExhibitionPreviewPage;
 
 const IntroWrapper = styled.div`
   width: 100%;
-  height: 100%;
   min-height: 100vh;
   background-color: ${COLORS.main.black};
   color: ${COLORS.main.white};
-  padding: 16px 80px;
+  padding: 16px 80px 80px;
 
   display: flex;
   flex-direction: column;

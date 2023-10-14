@@ -42,10 +42,14 @@ const ArtContent = () => {
               작가들의 감각적인 전시를 살펴보세요.
             </Text>
           </styles.TitleWrap>
-          <ArtCategoryMenu
-            menu={cFilter}
-            onClickMenu={onSelectCategoryFilter}
-          />
+          <styles.CategoryMenuWrap>
+            <ArtCategoryMenu
+              menu={cFilter}
+              onClickMenu={onSelectCategoryFilter}
+              containAll
+            />
+          </styles.CategoryMenuWrap>
+
           <SortingMenu menu={sFilter} onClickMenu={onSelectSortFilter} />
         </styles.Header>
       </styles.HeaderWrapper>

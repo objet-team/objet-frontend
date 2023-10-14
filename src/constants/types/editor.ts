@@ -4,7 +4,7 @@ export type ElementType = 'text' | 'image' | 'video' | 'space';
 export type AlignType = 'left' | 'center' | 'right';
 
 interface CommonElementProps {
-  id: number;
+  order: number;
   align: AlignType;
 }
 

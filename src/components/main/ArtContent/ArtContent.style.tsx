@@ -10,7 +10,6 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const Header = styled.div`
-  width: fit-content;
   margin: 0px auto;
 
   display: flex;
@@ -32,4 +31,9 @@ export const TopRankWrap = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 20px;
+`;
+
+export const CategoryMenuWrap = styled.div`
+  /*width: 100%;*/
+  overflow-x: hidden;
 `;

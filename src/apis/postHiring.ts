@@ -1,5 +1,5 @@
 import { PostHiringReq, PostHiringRes } from '@/constants/types/user';
-import client from './client';
+import client from './API';
 
 export const postHiring = async (
   token: string,

@@ -15,7 +15,7 @@ export interface FilterType {
 // TODO 정렬 방식 현재 4개로 되어있는데 추후에 2개로 수정할게요
 const Header = () => {
   const [filter, setFilter] = useState<FilterType>({
-    category: 'all',
+    category: 'graphicDesign',
     sort: 'recommend',
     content: 'exhibition',
   });
@@ -66,7 +66,11 @@ const Header = () => {
         <SortingMenu menu={sort} onClickMenu={onSelectSortFilter} />
       </styles.Row>
       <styles.CategoryMenuWrapper>
-        <ArtCategoryMenu menu={category} onClickMenu={onSelectCategoryFilter} />
+        <ArtCategoryMenu
+          menu={category}
+          onClickMenu={onSelectCategoryFilter}
+          containAll
+        />
       </styles.CategoryMenuWrapper>
     </styles.Container>
   );

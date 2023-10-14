@@ -17,8 +17,19 @@ export const ColContainer = styled.div<ColContainerProps>`
   justify-content: center;
   gap: ${(props) => props.gap};
 `;
+
 export const RowContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
+
+  .follow-btn {
+    width: 95px;
+    height: 40px;
+  }
+
+  .career-btn {
+    width: 257px;
+    height: 40px;
+  }
 `;

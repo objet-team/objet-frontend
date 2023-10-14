@@ -1,10 +1,10 @@
-import getFollowAvailability from '@/apis/getFolllowAvailability';
-import getFollow from '@/apis/getFollow';
+import { getFollowAvailability } from '@/apis/follow';
 import { useQuery } from '@tanstack/react-query';
-export const useGetFollowAvailability = (token: string, artistId: number) => {
+
+export const useGetFollowAvailability = (artistId: number) => {
   return useQuery<boolean>(
     ['get_follow_availability'],
-    () => getFollowAvailability(token, artistId),
+    () => getFollowAvailability(artistId),
     {
       staleTime: 300 * 1000,
     },

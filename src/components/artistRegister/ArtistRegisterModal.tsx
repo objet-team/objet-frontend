@@ -2,13 +2,13 @@ import CloseButton from '@public/icons/login/Login_close.svg';
 import { COLORS } from '@/constants/styles';
 import Text from '../common/Text';
 import * as styles from './ArtistRegisterModal.style';
-import PurpleFillBtn from '../common/Button/PurpleFillBtn';
+import Button from '../common/Button';
 import DesignType from './DesginType/DesignType';
 import api from '@/services/TokenService';
 import useInput from '@/hooks/useInput';
 import { PostArtistInfoReq } from '@/constants/types/mypage';
 import { useState } from 'react';
-import postArtistInfo from '@/apis/postArtistInfo';
+import { postArtistInfo } from '@/apis/artist';
 
 export interface ArtistRegisterModalProps {
   registerClick: boolean;
@@ -93,7 +93,7 @@ const ArtistRegisterModal = ({
           </Text>
         </styles.CheckboxContainer>
         <styles.ButtonContainer>
-          <PurpleFillBtn onClick={onClick} label="작가등록 신청하기" />
+          <Button fill="purple" onClick={onClick} label="작가등록 신청하기" />
         </styles.ButtonContainer>
       </styles.ModalBox>
     </styles.ModalBackground>

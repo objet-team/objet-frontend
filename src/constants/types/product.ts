@@ -1,3 +1,4 @@
+import { CategoryEnum } from './art';
 import { ElementProps } from './editor';
 
 export interface GetProductData {
@@ -38,4 +39,12 @@ export interface ProductDetailData {
 export enum UserTypes {
   DEFAULT,
   ARTIST,
+}
+
+/** 작품 업로드 request data */
+export interface ProductRegisterReq {
+  title: string;
+  description: string;
+  category: CategoryEnum;
+  contents: ElementProps[];
 }

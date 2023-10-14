@@ -1,6 +1,6 @@
 export const runtime = 'experimental-edge';
-import { getProductDetatil } from '@/apis/product';
 
+import { getProductDetatil } from '@/apis/product';
 import ArtistInfo from '@/components/common/ArtistInfo';
 import Content from '@/components/exhibition/Content';
 import Intro from '@/components/exhibition/Intro/Intro';
@@ -72,7 +72,6 @@ export default ExhibitionPage;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
   min-height: 100vh;
   background-color: ${COLORS.main.black};
   color: ${COLORS.main.white};

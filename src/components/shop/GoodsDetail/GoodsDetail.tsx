@@ -1,6 +1,6 @@
 import Content from '@/components/exhibition/Content';
 import Image from 'next/image';
-import { ShopItemDetailData } from '@/pages/shop/goods';
+import { NormalGoodsDetailData } from '@/pages/shop/[gid]';
 import Text from '@/components/common/Text';
 import { COLORS } from '@/constants/styles';
 import { useState } from 'react';
@@ -9,7 +9,7 @@ import * as styles from './GoodsDetail.style';
 const formatPrice = (value: number) =>
   value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-const GoodsDetail = ({ data }: { data: ShopItemDetailData }) => {
+const GoodsDetail = ({ data }: { data: NormalGoodsDetailData }) => {
   const [count, setCount] = useState(1);
   const [menu, setMenu] = useState<'content' | 'refund'>('content');
 
@@ -19,23 +19,24 @@ const GoodsDetail = ({ data }: { data: ShopItemDetailData }) => {
     artistProfileImage,
     name,
     price,
-    deliveryPrice,
+    deliveryCharge,
     contentData,
   } = data;
+
   return (
     <styles.Wrapper>
       <styles.Header>
         <styles.Section>
           <Image
-            src={imageList[0]}
+            src={imageList[0].url}
             width="550"
             height="550"
             alt="represent-img"
             className="represent-img"
           />
           <styles.ImagesWrapper>
-            {imageList.slice(1).map((img: string) => (
-              <Image src={img} width="76" height="76" alt="img" />
+            {imageList.slice(1).map(({ url }) => (
+              <Image src={url} width="76" height="76" alt="img" />
             ))}
           </styles.ImagesWrapper>
         </styles.Section>
@@ -68,7 +69,7 @@ const GoodsDetail = ({ data }: { data: ShopItemDetailData }) => {
           </styles.Top>
           <styles.Bottom>
             <Text color={COLORS.font.black100} textStyleName="subtitle">
-              배송비 : {formatPrice(deliveryPrice)}원
+              배송비 : {formatPrice(deliveryCharge)}원
             </Text>
             <Text
               color={COLORS.font.black100}

@@ -2,7 +2,7 @@ import CloseButton from '@public/icons/login/Login_close.svg';
 import * as styles from './CareerModal.style';
 import { COLORS } from '@/constants/styles';
 import Text from '@/components/common/Text';
-import PurpleFillBtn from '@/components/common/Button/PurpleFillBtn';
+import Button from '@/components/common/Button';
 import postHiring from '@/apis/postHiring';
 import api from '@/services/TokenService';
 import useInput from '@/hooks/useInput';
@@ -88,7 +88,7 @@ const CareerModal = ({
           </Text>
         </styles.CheckboxContainer>
         <styles.ButtonContainer>
-          <PurpleFillBtn label="채용 제안하기" onClick={onClick} />
+          <Button fill="purple" label="채용 제안하기" onClick={onClick} />
         </styles.ButtonContainer>
       </styles.ModalBox>
     </styles.ModalBackground>

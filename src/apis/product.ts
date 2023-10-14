@@ -1,8 +1,9 @@
 import {
   GetProductPopularDto,
   GetProductWeeklyDto,
+  ProductRegisterReq,
 } from '@/constants/types/product';
-import client from './client';
+import client from './API';
 import { GetProductNewDto } from '@/constants/types/home';
 
 /** 전시 작품 최신순 조회 API  */
@@ -60,6 +61,21 @@ export const getProductDetatil = async (id: number) => {
     const data = await res.json();
 
     return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+/** 작품 등록 API  */
+export const registerProduct = async (
+  inputs: ProductRegisterReq,
+): Promise<{
+  message: string;
+  productId: number;
+}> => {
+  try {
+    const res = await client.post('/api/v1/product/register', inputs);
+    return res.data;
   } catch (error) {
     throw error;
   }
